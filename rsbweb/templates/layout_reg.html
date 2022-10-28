@@ -1,0 +1,385 @@
+    <h3 class="mt-4 text-center">{{ reg[0].prt }} <br> {{ reg[0].prt_txt }}</h3>
+    {% if reg[0].prt_notas!=none %}
+        <dd class="text-center">{{ reg[0].prt_notas }}</dd>{% endif %}
+
+    {% set ns_c = namespace(count = 0 ) %}
+    {% set ns = namespace(i_previous = reg[ns_c.count]) %}
+
+    {% for i in reg %}
+
+        {% if  i.cap == none and i.sec == none and i.subsec == none and i.art != none and i.pnt == none and i.aln == none %}
+            {#(case 1)#}
+            {% if i.art != ns.i_previous.art or ns_c.count == 0 %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% endif %}
+        {% elif i.cap == none and i.sec == none and i.subsec == none and i.art != none and i.pnt == none and i.aln != none %}
+            {#(case 2)#}
+            {% if i.art != ns.i_previous.art or ns_c.count == 0 %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% else %}
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% endif %}
+        {% elif i.cap == none and i.sec == none and i.subsec == none and i.art != none and i.pnt != none and i.aln == none %}
+            {#(case 3)#}
+            {% if i.art != ns.i_previous.art or ns_c.count == 0 %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% else %}
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% endif %}
+
+        {% elif i.cap == none and i.sec == none and i.subsec == none and i.art != none and i.pnt != none and i.aln != none %}
+            {#(case 4)#}
+            {% if i.art != ns.i_previous.art or ns_c.count == 0 %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% else %}
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% endif %}
+
+        {% elif i.cap != none and i.sec == none and i.subsec == none and i.art == none and i.pnt == none and i.aln == none and i.quadro != none %}
+            {#(case 5)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center mt-4">{{ i.cap }}</h4>
+                {% if i.cap_txt != none %}
+                    <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                {% endif %}
+                <dt class="text-center"> {{ i.quadro }}{% if i.quadro_txt != none %} <br> {{ i.quadro_txt }} {% endif %}
+                </dt>
+                <dd class="text-center"> {{ i.quadro_url }} </dd>
+            {% else %}
+                <dt class="text-center"> {{ i.quadro }}{% if i.quadro_txt != none %} <br> {{ i.quadro_txt }} {% endif %}
+                </dt>
+                <dd class="text-center"> {{ i.quadro_url }} </dd>
+            {% endif %}
+
+
+        {% elif i.cap != none and i.sec == none and i.subsec == none and i.art == none and i.pnt != none and i.aln == none and i.quadro == none %}
+            {#(case 6)#}
+
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center mt-4">{{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% else %}
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% endif %}
+
+
+        {% elif i.cap != none and i.sec == none and i.subsec == none and i.art == none and i.pnt != none and i.aln != none and i.quadro == none %}
+            {#(case 7)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.pnt != ns.i_previous.pnt %}
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% else %}
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% endif %}
+        {% elif i.cap != none and i.sec == none and i.subsec == none and i.art == none and i.pnt != none and i.aln == none and i.quadro != none %}
+            {#(case 8)#}
+            <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            <dt class="text-center"> {{ i.quadro }} - {{ i.quadro_txt }} </dt>
+            <dd class="text-center"> {{ i.quadro_url }} </dd>
+
+        {% elif i.cap != none and i.sec == none and i.subsec == none and i.art != none and i.pnt == none and i.aln == none and i.quadro == none %}
+            {#(case 9)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% else %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% endif %}
+
+        {% elif i.cap != none and i.sec == none and i.subsec == none and i.art != none and i.pnt == none and i.aln != none and i.quadro == none %}
+            {#(case 10)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.art != ns.i_previous.art %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% else %}
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% endif %}
+
+
+        {% elif i.cap != none and i.sec == none and i.subsec == none and i.art != none and i.pnt != none and i.aln != none and i.quadro == none %}
+            {#(case 11)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.art != ns.i_previous.art %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.pnt != ns.i_previous.pnt %}
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% else %}
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% endif %}
+
+        {% elif i.cap != none and i.sec == none and i.subsec == none and i.art != none and i.pnt != none and i.aln == none and i.quadro == none %}
+            {#(case 12)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% elif i.art != ns.i_previous.art %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% else %}
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% endif %}
+
+
+        {% elif i.cap != none and i.sec != none and i.subsec == none and i.art != none and i.pnt == none and i.aln == none and i.quadro == none %}
+            {#(case 13)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% elif i.sec != ns.i_previous.sec %}
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% else %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% endif %}
+
+        {% elif i.cap != none and i.sec != none and i.subsec == none and i.art != none and i.pnt == none and i.aln != none and i.quadro == none %}
+            {#(case 14)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.sec != ns.i_previous.sec %}
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.art != ns.i_previous.art %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% else %}
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% endif %}
+
+        {% elif i.cap != none and i.sec != none and i.subsec == none and i.art != none and i.pnt != none and i.aln == none and i.quadro == none %}
+            {#(case 15)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% elif i.sec != ns.i_previous.sec %}
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% elif i.art != ns.i_previous.art %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% else %}
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% endif %}
+
+
+        {% elif i.cap != none and i.sec != none and i.subsec == none and i.art != none and i.pnt != none and i.aln != none and i.quadro == none %}
+            {#(case 16)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.sec != ns.i_previous.sec %}
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.art != ns.i_previous.art %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.pnt != ns.i_previous.pnt %}
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% else %}
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% endif %}
+
+        {% elif i.cap != none and i.sec != none and i.subsec != none and i.art != none and i.pnt == none and i.aln == none and i.quadro == none %}
+            {#(case 17)#}
+
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <h6 class="text-center pt-2">Secção {{ i.subsec }} </h6>
+                <h6 class="text-center">{{ i.subsec_txt }} </h6>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% elif i.sec != ns.i_previous.sec %}
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <h6 class="text-center pt-2">Secção {{ i.subsec }} </h6>
+                <h6 class="text-center">{{ i.subsec_txt }} </h6>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% elif i.subsec != ns.i_previous.subsec %}
+                <h6 class="text-center pt-2">Secção {{ i.subsec }} </h6>
+                <h6 class="text-center">{{ i.subsec_txt }} </h6>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% else %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.art_txt }} </dd>
+            {% endif %}
+
+
+        {% elif i.cap != none and i.sec != none and i.subsec != none and i.art != none and i.pnt != none and i.aln == none and i.quadro == none %}
+            {#(case 18)#}
+
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <h6 class="text-center pt-2">Secção {{ i.subsec }} </h6>
+                <h6 class="text-center">{{ i.subsec_txt }} </h6>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% elif i.sec != ns.i_previous.sec %}
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <h6 class="text-center pt-2">Secção {{ i.subsec }} </h6>
+                <h6 class="text-center">{{ i.subsec_txt }} </h6>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% elif i.subsec != ns.i_previous.subsec %}
+                <h6 class="text-center pt-2">Secção {{ i.subsec }} </h6>
+                <h6 class="text-center">{{ i.subsec_txt }} </h6>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% elif i.art != ns.i_previous.art %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% else %}
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+            {% endif %}
+
+        {% elif i.cap != none and i.sec != none and i.subsec != none and i.art != none and i.pnt != none and i.aln != none and i.quadro == none %}
+            {#(case 19)#}
+            {% if i.cap != ns.i_previous.cap or ns_c.count == 0 %}
+                <h4 class="text-center pt-4">CAPÍTULO {{ i.cap }}</h4>
+                <h4 class="text-center mt-1"> {{ i.cap_txt }} </h4>
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <h6 class="text-center pt-2">Secção {{ i.subsec }} </h6>
+                <h6 class="text-center">{{ i.subsec_txt }} </h6>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.sec != ns.i_previous.sec %}
+                <h5 class="text-center pt-2">SECÇÃO {{ i.sec }} </h5>
+                <h5 class="text-center">{{ i.sec_txt }} </h5>
+                <h6 class="text-center pt-2">Secção {{ i.subsec }} </h6>
+                <h6 class="text-center">{{ i.subsec_txt }} </h6>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.subsec != ns.i_previous.subsec %}
+                <h6 class="text-center pt-2">Secção {{ i.subsec }} </h6>
+                <h6 class="text-center">{{ i.subsec_txt }} </h6>
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.art != ns.i_previous.art %}
+                <dt class="text-center pt-2">Artigo {{ i.art }}.º</dt>
+                <dt class="text-center pb-2">{{ i.art_tit }} </dt>
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% elif i.pnt != ns.i_previous.pnt %}
+                <dd class="text-justify" style="text-indent: 15pt">{{ i.pnt }} — {{ i.pnt_txt }}</dd>
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% else %}
+                <dd class="mb-0 pb-2 text-justify" style="text-indent: 15pt"> {{ i.aln }}) {{ i.aln_txt }} </dd>
+            {% endif %}
+
+        {% endif %}
+        {% set ns.i_previous = reg[ns_c.count] %}
+        {% set ns_c.count = ns_c.count + 1 %}
+
+    {% endfor %}
