@@ -36,7 +36,6 @@ def reg_dtaII():
     return render_template('dtaII.html', dtaII=dtaII)
 
 
-
 @main.route("/dtaIII")
 def reg_dtaIII():
     dtaIII = DTA_PIII_2019.query.all()

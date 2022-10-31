@@ -13,16 +13,29 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
     {% if title %}
-        <title>RSB web - {{ title }}</title>
+        <title>{{ title }}</title>
     {% else %}
-        <title>RSB web</title>
+        <title>Regulamentação de Barragens</title>
     {% endif %}
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
 </head>
 <body>
 <header class="site-header">
-    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top">
         <div class="container">
-            <a class="navbar-brand mr-4" href="/">RSB web</a>
+            <a class="navbar-brand mr-4" href="/">Regulamentação de Barragens</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                     aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -63,40 +76,57 @@
         </div>
         <div class="col-md-4">
             <div class="content-section">
-                <h3>Links rápidos</h3>
-                <p class='text-muted'>Visualização completa dos documentos.
-                <div class="list-group">
-                    <a href="rsb" class="list-group-item list-group-item-action list-group-item-light">RSB
+                <h4>Links rápidos</h4>
+
+                <h6 class="mt-3 ml-3">Regulamentos de barragens:</h6>
+                <div class="list-group" id="sideList" role="tablist">
+
+                    <a class="list-group-item  list-group-item-action list-group-item-info"  href="rsb" id="RSB">RSB
                         (2018)<br><small> Regulamento Segurança de Barragens</small></a>
-                    <a href="rpb" class="list-group-item list-group-item-action list-group-item-light">RPB
+                    <a class="list-group-item  list-group-item-action list-group-item-info" href="rpb" id="RPB">RPB
                         (2018)<br><small> Regulamento de Pequenas Barragens</small></a>
-                    <a class="list-group-item list-group-item list-group-item-light">DTA (2019) <br><small>Documentos
-                        Técnicos de Apoio: </small></a>
-                    <a class="list-group-item list-group-item-action list-group-item-light" href="dtaI"> - Parte
-                        I (Projeto)</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light" href="dtaII"> -
-                        Parte II (Construção)</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light" href="dtaIII"> -
-                        Parte III (Regras de Exploração)</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light" href="dtaIV"> -
-                        Parte IV (Observação)</a>
+                    <h6 class="mt-3 ml-3">DTA (2019)
+                        <br> Documentos Técnicos de Apoio: </h6>
+                    <a class="list-group-item  list-group-item-action list-group-item-info" href="dtaI" id="DTA_I">Parte I
+                        (Projeto)</a>
+                    <a class="list-group-item  list-group-item-action list-group-item-info" href="dtaII" id="DTA_II">Parte
+                        II (Construção)</a>
+                    <a class="list-group-item list-group-item-action list-group-item-info" href="dtaIII" id="DTA_III">Parte
+                        III (Regras de Exploração)</a>
+                    <a class="list-group-item list-group-item-action list-group-item-info" href="dtaIV" id="DTA_IV">Parte
+                        IV (Observação)</a>
                 </div>
             </div>
         </div>
     </div>
 </main>
 
-
 <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+<script>
+
+    $(".list-group-item").click(function () {
+
+
+        // Select all list items
+        var listItems = $(".list-group-item");
+
+        // Remove 'active' tag for all list items
+        for (let i = 0; i < listItems.length; i++) {
+            listItems[i].classList.remove("active");
+        }
+        // Add 'active' tag for currently selected item
+        this.classList.add("active");
+    });
+
+    var listItems = document.getElementsByClassName('list-group-item')
+        for (let i = 0; i < listItems.length; i++) {
+            if (listItems[i].id == "{{ title }}") {
+                listItems[i].classList.add("active");
+            } else {
+                listItems[i].classList.remove("active");
+            }
+        };
+
+</script>
 </body>
 </html>
