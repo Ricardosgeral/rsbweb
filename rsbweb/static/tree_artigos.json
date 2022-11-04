@@ -1,0 +1,375 @@
+[
+  {
+    "name": "RPB",
+    "children": [
+      {
+        "name": "Art. 1",
+        "title": "Objeto",
+        "text": "O presente Regulamento tem por objeto a segurança de pequenas barragens durante as fases de projeto, construção, primeiro enchimento, exploração e reabilitação.",
+        "children": []
+      },
+      {
+        "name": "Art. 2",
+        "title": "Âmbito",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "O presente Regulamento aplica-se às barragens de altura inferior a 10 m, medida desde a cota mais baixa da superfície geral das fundações até à cota do coroamento, independentemente da capacidade de armazenamento das respetivas albufeiras, bem como das barragens de altura igual ou superior a 10 m e inferior a 15 m, cujas albufeiras tenham capacidade de armazenamento igual ou inferior a 1 hm3.",
+            "children": []
+          },
+          {
+            "point": "2",
+            "text": "As barragens referidas no número anterior, correspondentes a obras não abrangidas pelo Regulamento de Segurança de Barragens anexo ao Decreto-Lei n.º 344/2007, de 15 de outubro, devem ser classificadas de acordo com a metodologia indicada nesse Regulamento.",
+            "children": []
+          },
+          {
+            "point": "3",
+            "text": "Para as barragens com altura inferior a 5 m, medida no pé de jusante da barragem, desde a cota do talvegue até à cota do coroamento, no caso de serem classificadas na classe III, é dispensada a aplicação das disposições indicadas nos artigos 5.º, 6.º, 8.º e 9.º",
+            "children": []
+          },
+          {
+            "point": "4",
+            "text": "Para as barragens com altura inferior a 2 m, medida nos termos do número anterior, é dispensada a aplicação do presente Regulamento.",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 3",
+        "title": "Definições",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "Para efeitos do presente Regulamento, entende-se por:",
+            "children": [
+              {
+                "aln": "a",
+                "text": "«Autoridade», a Agência Portuguesa do Ambiente, I. P., na qualidade de organismo com competência genérica de controlo de segurança das barragens, que se designa por Autoridade Nacional de Segurança de Barragens (doravante, Autoridade);"
+              },
+              {
+                "aln": "b",
+                "text": "«Barragem», o conjunto formado pela estrutura de retenção, sua fundação, zona vizinha a jusante, órgãos de segurança e exploração e albufeira, com exceção dos diques fluviais e costeiros, das ensecadeiras que não permaneçam para além do período de construção, dos reservatórios construídos fora das linhas de água e das barragens de resíduos industriais ou que promovam a sua retenção;"
+              },
+              {
+                "aln": "c",
+                "text": "«Dono de obra», a entidade responsável pela barragem perante a Autoridade, para efeitos de aplicação do presente Regulamento, em virtude de deter um título jurídico suficiente para construir ou explorar a barragem ou, na ausência deste título, em virtude da efetiva execução material da obra ou da sua exploração.\n"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Art. 4",
+        "title": "Projeto",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "O projeto deve ser elaborado por um técnico com as devidas qualificações e experiência, reconhecidas pela Autoridade, respeitar a legislação em vigor e incluir uma classificação da barragem de acordo com a metodologia referida no n.º 2 do artigo 2.º",
+            "children": []
+          },
+          {
+            "point": "2",
+            "text": "O dono de obra deve submeter o projeto a aprovação da Autoridade, com a devida antecedência em relação ao início dos trabalhos de construção.",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 5",
+        "title": "Construção",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "A construção deve ser realizada por um empreiteiro habilitado com alvará da categoria correspondente a obras hidráulicas, barragens e diques, na classe correspondente ao valor da obra, nos termos da legislação que estabelece o regime jurídico de ingresso e permanência na atividade de construção.",
+            "children": []
+          },
+          {
+            "point": "2",
+            "text": "A construção deve ser dirigida por um técnico com as qualificações e experiência adequadas, reconhecidas pela Autoridade, e deve respeitar o projeto aprovado, assim como as Normas Portuguesas aplicáveis com vista a garantir a qualidade da obra.",
+            "children": []
+          },
+          {
+            "point": "3",
+            "text": "O dono de obra deve comunicar a conclusão dos trabalhos de construção e requerer autorização para proceder ao início do enchimento da albufeira, no caso de obras da classe II.",
+            "children": []
+          },
+          {
+            "point": "4",
+            "text": "No caso de obras com descarga de fundo, esta deve ser mantida aberta até ao início do enchimento da albufeira, após a necessária autorização para as obras da classe II.",
+            "children": []
+          },
+          {
+            "point": "5",
+            "text": "O dono de obra deve comunicar à Autoridade eventuais ocorrências excecionais ou circunstâncias anómalas que se verifiquem durante a construção, nomeadamente a ocorrência de um enchimento inesperado da albufeira.",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 6",
+        "title": "Primeiro enchimento da albufeira, para as barragens da classe II\n",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "A decisão da Autoridade relativa à realização do enchimento da albufeira deve ser comunicada por escrito ao dono de obra, imediatamente após inspeção, com indicação, no caso de o enchimento não ser autorizado, dos factos que justificam essa decisão.",
+            "children": []
+          },
+          {
+            "point": "2",
+            "text": "No caso de o enchimento da albufeira não ser autorizado, o dono de obra deve implementar as medidas corretivas adequadas e solicitar à Autoridade nova inspeção.",
+            "children": []
+          },
+          {
+            "point": "3",
+            "text": "O período de tempo entre o pedido do dono de obra para o início do enchimento da albufeira e a correspondente decisão da Autoridade não deve ultrapassar 50 dias.",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 7",
+        "title": "Exploração",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "O dono de obra é responsável pela exploração perante a Autoridade, que poderá, sempre que julgar conveniente, promover inspeções à barragem.",
+            "children": []
+          },
+          {
+            "point": "2",
+            "text": "Na sequência das inspeções referidas no número anterior, a Autoridade poderá definir medidas com vista a assegurar as necessárias condições de segurança para pessoas e bens, que podem incluir condicionamentos da exploração, alterações nas regras de exploração da albufeira e na operação dos órgãos de segurança e exploração, bem como o reforço de ações de monitoramento e inspeção, ou a realização de estudos e obras de reforço do comportamento estrutural ou hidráulico.",
+            "children": []
+          },
+          {
+            "point": "3",
+            "text": "As medidas referidas no número anterior devem ser comunicadas ao dono de obra, por escrito, assim como os prazos em que devem ser efetivadas.",
+            "children": []
+          },
+          {
+            "point": "4",
+            "text": "No caso de incumprimento do dono de obra quanto à realização das medidas definidas nos termos dos números anteriores e em casos de risco elevado, a Autoridade poderá substituir-se ao dono de obra e fazer-se ressarcir, por este, dos custos respetivos.",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 8",
+        "title": "Disposições técnicas aplicáveis aos projetos",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "Para cálculo da cheia de projeto deve ser adotado um período de retorno mínimo de 500 anos, exceto para as obras da classe III com albufeiras de capacidade de armazenamento inferior a 100 000 m3, para as quais pode ser adotado um período de retorno mínimo de 100 anos.",
+            "children": []
+          },
+          {
+            "point": "2",
+            "text": "No caso de barragens de aterro:",
+            "children": [
+              {
+                "aln": "a",
+                "text": "A folga, correspondente à diferença entre o nível de máxima cheia e a cota do coroamento da barragem, não considerando a guarda nem a sobrelevação, deve ser igual ou superior a 1 m;\n"
+              },
+              {
+                "aln": "b",
+                "text": "A largura do coroamento não deve ser inferior a 3 m.\n"
+              }
+            ]
+          },
+          {
+            "point": "3",
+            "text": "Os descarregadores de cheias devem:",
+            "children": [
+              {
+                "aln": "a",
+                "text": "No caso de barragens de aterro, não ser munidos de comportas nem ter a fundação no corpo do aterro;\n"
+              },
+              {
+                "aln": "b",
+                "text": "No caso de descarregadores em canal, ter uma estrutura de entrada com vão livre maior ou igual a 3 m;\n"
+              },
+              {
+                "aln": "c",
+                "text": "Estar permanentemente desobstruídos durante a exploração, sendo proibida a sua parcial obstrução, nomeadamente com sacos de terra, redes ou por quaisquer outros meios.\n"
+              }
+            ]
+          },
+          {
+            "point": "4",
+            "text": "As barragens com albufeiras de capacidade de armazenamento superior a 100 000 m3 devem ser dotadas de descarga de fundo.",
+            "children": []
+          },
+          {
+            "point": "5",
+            "text": "As condutas das descargas de fundo não devem ter contacto direto com os aterros.",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 9",
+        "title": "Disposições técnicas específicas para as barragens da classe II",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "No projeto e construção das barragens da classe II devem ser respeitadas as seguintes disposições, sem prejuízo do disposto referido no artigo anterior:",
+            "children": [
+              {
+                "aln": "a",
+                "text": "Dotar as barragens de tomada de água e descarga de fundo, munidas de comporta a montante, podendo aceitar-se que uma única conduta desempenhe as duas funções;\n"
+              },
+              {
+                "aln": "b",
+                "text": "Instalar dispositivo que forneça informação fiável sobre o nível da água a montante da barragem.\n"
+              }
+            ]
+          },
+          {
+            "point": "2",
+            "text": "O dono de obra deve assegurar que a exploração da barragem tenha o acompanhamento de um técnico com formação profissional e experiência adequadas à importância da obra, promovendo:",
+            "children": [
+              {
+                "aln": "a",
+                "text": "A realização de uma inspeção anual da barragem antes do início da época das chuvas, assim como uma inspeção imediatamente após ocorrências excecionais, tais como grandes cheias ou sismos;\n"
+              },
+              {
+                "aln": "b",
+                "text": "A elaboração de um relatório e o seu envio à Autoridade imediatamente após as ocorrências excecionais referidas na alínea anterior;\n"
+              },
+              {
+                "aln": "c",
+                "text": ""
+              }
+            ]
+          },
+          {
+            "point": "3",
+            "text": "Em casos especiais, tendo em conta os danos potenciais e a perigosidade da barragem, poderão justificar-se medidas de controlo de segurança adicionais às indicadas no número anterior.",
+            "children": []
+          },
+          {
+            "point": "4",
+            "text": "Em situações que indiciem perigo de rotura como, por exemplo, a iminência de galgamento, devem ser adotadas as seguintes diligências:",
+            "children": [
+              {
+                "aln": "a",
+                "text": ""
+              },
+              {
+                "aln": "b",
+                "text": ""
+              },
+              {
+                "aln": "c",
+                "text": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Art. 10",
+        "title": "Manual de apoio ao projeto, construção, exploração e reabilitação",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "A Autoridade deve promover a execução e publicação de um Manual, para apoio ao projeto, construção, exploração e reabilitação de pequenas barragens.",
+            "children": []
+          },
+          {
+            "point": "2",
+            "text": "O Manual referido no número anterior deve ser objeto de revisão sempre que as circunstâncias e a experiência o aconselhem.",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 11",
+        "title": "Aplicação às barragens em fase de construção ou de exploração",
+        "text": "No prazo máximo de três anos a partir da entrada em vigor do presente Regulamento, o dono de obra deve sub- meter à Autoridade:",
+        "children": [
+          {
+            "point": "a",
+            "text": "A aprovação de uma proposta de atribuição de classe à barragem, devidamente justificada em função dos danos potenciais e da perigosidade associados, de acordo com a metodologia referida no n.º 2 do artigo 2.º;",
+            "children": []
+          },
+          {
+            "point": "b",
+            "text": "No caso de barragens da classe II, a apreciação e decisão quanto a eventuais não conformidades da barragem relativamente às disposições técnicas dos artigos 8.º e 9.º",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 12",
+        "title": "Penalizações por incumprimento das disposições do presente Regulamento",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "Na falta de cumprimento das disposições do presente Regulamento, a Autoridade pode determinar a aplicação de coima, a punir com contraordenação no âmbito do regime geral do ilícito de mera ordenação social, aprovado pelo Decreto-Lei n.º 433/82, de 27 de outubro, na sua redação atual.",
+            "children": []
+          },
+          {
+            "point": "2",
+            "text": "Constitui contraordenação punível com coima de € 500 a € 3740,98, no caso de pessoa singular, e de € 1000 a € 44 891,81, no caso de pessoa coletiva:",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 13",
+        "title": "Determinação da sanção aplicável",
+        "text": "",
+        "children": [
+          {
+            "point": "1",
+            "text": "A determinação da medida da coima faz-se em função da gravidade da contraordenação, da culpa do agente, da sua situação económica e dos benefícios obtidos com a prática do facto.",
+            "children": []
+          },
+          {
+            "point": "2",
+            "text": "Na determinação da sanção aplicável são ainda tomadas em conta a conduta anterior e posterior do agente e as exigências de prevenção.",
+            "children": []
+          },
+          {
+            "point": "3",
+            "text": "São ainda atendíveis a coação, a falsificação, as falsas declarações, simulação ou outro meio fraudulento utilizado pelo agente, bem como a existência de atos de ocultação ou dissimulação tendentes a dificultar a descoberta da infração.",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Art. 14",
+        "title": "Instrução de processos e aplicação de sanções",
+        "text": "A instauração, a instrução e a decisão dos processos de contraordenação, bem como a aplicação das coimas, compete à Autoridade.",
+        "children": []
+      },
+      {
+        "name": "Art. 15",
+        "title": "Produto das coimas",
+        "text": "O produto das coimas previstas no presente Regulamento é afetado da seguinte forma:",
+        "children": [
+          {
+            "point": "a",
+            "text": "60 % para o Estado;",
+            "children": []
+          },
+          {
+            "point": "b",
+            "text": "40 % para a Autoridade.",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

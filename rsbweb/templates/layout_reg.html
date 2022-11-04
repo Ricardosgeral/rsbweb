@@ -1,3 +1,7 @@
+{#código a incluir nas paginas para apresentar os artigos na base de dados
+input ->> reg
+#}
+
     <h3 class="mt-4 text-center">{{ reg[0].prt }} <br> {{ reg[0].prt_txt }}</h3>
     {% if reg[0].prt_notas!=none %}
         <dd class="text-center">{{ reg[0].prt_notas }}</dd>{% endif %}

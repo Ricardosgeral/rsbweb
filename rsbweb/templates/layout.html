@@ -33,11 +33,11 @@
 </head>
 <body>
 <header class="site-header">
-    <nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top">
+    <nav class="navbar navbar-expand-md bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand mr-4" href="/">Regulamentação de Barragens</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
-                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="/">Regulamentação de Barragens</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
@@ -81,13 +81,14 @@
                 <h6 class="mt-3 ml-3">Regulamentos de barragens:</h6>
                 <div class="list-group" id="sideList" role="tablist">
 
-                    <a class="list-group-item  list-group-item-action list-group-item-info"  href="rsb" id="RSB">RSB
+                    <a class="list-group-item  list-group-item-action list-group-item-info" href="rsb" id="RSB">RSB
                         (2018)<br><small> Regulamento Segurança de Barragens</small></a>
                     <a class="list-group-item  list-group-item-action list-group-item-info" href="rpb" id="RPB">RPB
                         (2018)<br><small> Regulamento de Pequenas Barragens</small></a>
                     <h6 class="mt-3 ml-3">DTA (2019)
                         <br> Documentos Técnicos de Apoio: </h6>
-                    <a class="list-group-item  list-group-item-action list-group-item-info" href="dtaI" id="DTA_I">Parte I
+                    <a class="list-group-item  list-group-item-action list-group-item-info" href="dtaI" id="DTA_I">Parte
+                        I
                         (Projeto)</a>
                     <a class="list-group-item  list-group-item-action list-group-item-info" href="dtaII" id="DTA_II">Parte
                         II (Construção)</a>
@@ -119,13 +120,14 @@
     });
 
     var listItems = document.getElementsByClassName('list-group-item')
-        for (let i = 0; i < listItems.length; i++) {
-            if (listItems[i].id == "{{ title }}") {
-                listItems[i].classList.add("active");
-            } else {
-                listItems[i].classList.remove("active");
-            }
-        };
+    for (let i = 0; i < listItems.length; i++) {
+        if (listItems[i].id == "{{ title }}") {
+            listItems[i].classList.add("active");
+        } else {
+            listItems[i].classList.remove("active");
+        }
+    }
+    ;
 
 </script>
 </body>
