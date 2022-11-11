@@ -3,10 +3,20 @@ $(function () {
     $("#jstree")
         .jstree({
             "core": {
+                "animation":600,
+                'strings': {
+                    'Loading ...': 'Espere ...'
+                },
+                "themes": {
+                    "icons": false,
+                    "expand_selected_onload": true,
+                    "responsive": true
+                },
                 "data":
-                    {"url": "./static/regulamentos_tree.json",}
+                    {"url": "./static/regulamentos_tree.json",},
+
             },
-            "plugins": ["checkbox", "search"],
+            "plugins": ["checkbox", "search", "wholerow"],
             "checkbox": {
                 "keep_selected_style": false
             },
@@ -21,7 +31,14 @@ $(function () {
     });
 
 
+// hover
+    $('#jstree').bind("hover_node.jstree", function (e, data) {
+        $("#jstree").attr('title', data.node.original.title);
+    });
+
+
 });
+
 
 
 $(document).ready(function () {
