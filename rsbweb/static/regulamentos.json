@@ -1,8 +1,8 @@
 [
   {
-    "name": "RSB",
+    "name": "Regulamento de Segurança de Barragens",
     "value": "RSB",
-    "title": "Regulamento de Segurança de Barragens",
+    "title": "",
     "notes": "Diário da República, 1.ª série — N.º 62 — 28 de março de 2018",
     "children": [
       {
@@ -2707,9 +2707,9 @@
     ]
   },
   {
-    "name": "RPB",
+    "name": "Regulamento de Pequenas Barragens",
     "value": "RPB",
-    "title": "Regulamento de Pequenas Barragens",
+    "title": "",
     "notes": "Diário da República, 1.ª série — N.º 62 — 28 de março de 2018 (Anexo II)",
     "children": [
       {
@@ -3120,7 +3120,7 @@
   {
     "name": "DOCUMENTO TÉCNICO DE APOIO AO PROJETO DE BARRAGENS",
     "value": "DTA-Parte I",
-    "title": "DTA - Projeto de barragens",
+    "title": "",
     "notes": "(Revisão da Portaria n.º 846/93, de 10 de setembro, dos Ministérios da Administração Interna, da Agricultura, da Indústria e Energia, das Obras Públicas, Transportes e Comunicações, e do Ambiente e Recursos Naturais)",
     "children": [
       {
@@ -6838,7 +6838,7 @@
   {
     "name": "DOCUMENTO TÉCNICO DE APOIO DA CONSTRUÇÃO DE BARRAGENS",
     "value": "DTA-Parte II",
-    "title": "DTA - Construção de barragens)",
+    "title": "",
     "notes": "(Revisão da Portaria n.º 246/98, de 21 de Abril, dos Ministérios da Defesa Nacional, da Administração Interna, do Equipamento, do Planeamento e da Administração do Território, da Economia, da Agricultura, do Desenvolvimento Rural e das Pescas, e do Ambiente)",
     "children": [
       {
@@ -9697,7 +9697,7 @@
   {
     "name": "DOCUMENTO TÉCNICO DE APOIO DA EXPLORAÇÃO DE BARRAGENS",
     "value": "DTA-Parte III",
-    "title": "DTA - Exploração de barragens)",
+    "title": "",
     "notes": "",
     "children": [
       {
@@ -10719,7 +10719,7 @@
   {
     "name": "DOCUMENTO TÉCNICO DE APOIO DA OBSERVAÇÃO E INSPEÇÃO DE BARRAGENS",
     "value": "DTA-Parte IV",
-    "title": "DTA - Observação de barragens",
+    "title": "",
     "notes": "(Revisão da Portaria n.º 847/93, de 10 de Setembro, dos Ministérios da Administração Interna, da Agricultura, da Indústria e Energia, das Obras Públicas, Transportes e Comunicações, e do Ambiente e Recursos Naturais)",
     "children": [
       {

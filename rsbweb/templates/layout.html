@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html>
 <head>
     <!-- Required meta tags -->
@@ -11,58 +10,140 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css"/>
+
+
+
+
 
     {% if title %}
-        <title>{{ title }}</title>
+        <title>Flask Blog - {{ title }}</title>
     {% else %}
-        <title>Regulamentação de Barragens</title>
+        <title>Flask Blog</title>
     {% endif %}
-
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-
 </head>
 <body>
 <header class="site-header">
-    <nav class="navbar navbar-expand-md bg-dark fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="/">Regulamentação de Barragens</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarToggle">
-                <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
-                    <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
-                </div>
-                <!-- Navbar Right Side -->
-                <div class="navbar-nav">
-                    {% if current_user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}">New Post</a>
-                        <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
-                        <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
-                    {% else %}
-                        <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
-                        <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>
-                    {% endif %}
-                </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#">Barragens</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('main.home') }}">Início <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.about') }}">Acerca</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Regulamentos
+                    </a>
+                    <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
+                        <h5 class="dropdown-header">Regulamentos (DR 2018)</h5>
+
+                        <a class="dropdown-item btn btn-secondary" href="rsb">RSB</a>
+                        <a class="dropdown-item" href="rpb">RPB</a>
+                        <div class="dropdown-divider"></div>
+                        <h5 class="dropdown-header">Documentos Técnicos de Apoio <br> (APA, 2019)</h5>
+                        <a class="dropdown-item" href="dtaI">Parte I (projeto)</a>
+                        <a class="dropdown-item" href="dtaII">Parte II (construção)</a>
+                        <a class="dropdown-item" href="dtaIII">Parte III (exploração)</a>
+                        <a class="dropdown-item" href="dtaIV">DTA IV (observação)</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Procurar no site" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Procurar</button>
+            </form>
+
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                {% if current_user.is_authenticated %}
+                    {#                    <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}">New Post</a>#}
+                    <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Conta</a>
+                    <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Sair</a>
+                {% else %}
+                    <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Entrar</a>
+                    <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Registar</a>
+                {% endif %}
             </div>
+
+
         </div>
     </nav>
+
+
+    {#    <nav class="navbar navbar-expand-md navbar-primary bg-dark">#}
+    {#        <div class="container">#}
+    {#            <a class="navbar-brand mr-4" href="/">Barralegal</a>#}
+    {#            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"#}
+    {#                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">#}
+    {#                <span class="navbar-toggler-icon"></span>#}
+    {#            </button>#}
+    {#            <div class="collapse navbar-collapse" id="navbarToggle">#}
+    {#                <div class="navbar-nav mr-auto">#}
+    {#                    <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Início</a>#}
+    {#                    <a class="nav-item nav-link" href="{{ url_for('main.about') }}">Sobre</a>#}
+    {#                </div>#}
+    {#                <div class="dropdown">#}
+    {#                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"#}
+    {#                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+    {#                        Regulamentação barragens#}
+    {#                    </button>#}
+    {#                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">#}
+    {#                        <h6 class="dropdown-header">Regulamentos (2018)</h6>#}
+    {##}
+    {#                        <a class="dropdown-item" href="rsb">RSB</a>#}
+    {#                        <a class="dropdown-item" href="rpb">RPB</a>#}
+    {#                        <h6 class="dropdown-header">Documentos Técnicos de Apoio <br> (APA, 2019)</h6>#}
+    {##}
+    {#                        <a class="dropdown-item" href="dtaI">Parte I (projeto)</a>#}
+    {#                        <a class="dropdown-item" href="dtaII">Parte II (construção)</a>#}
+    {#                        <a class="dropdown-item" href="dtaIII">Parte III (exploração)</a>#}
+    {#                        <a class="dropdown-item" href="dtaIV">DTA IV (observação)</a>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {##}
+    {##}
+    {#                <!-- Navbar Right Side -->#}
+    {#                <div class="navbar-nav">#}
+    {#                    {% if current_user.is_authenticated %}#}
+    {#                        <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}">New Post</a>#}
+    {#                        <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Conta</a>#}
+    {#                        <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Sair</a>#}
+    {#                    {% else %}#}
+    {#                        <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Entrar</a>#}
+    {#                        <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Registar</a>#}
+    {#                    {% endif %}#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </nav>#}
+
+
 </header>
 <main role="main" class="container">
     <div class="row">
-        <div class="col-md-8">
+
+        <div class="col-lg-3">
+            <input id="search-input" class="search-input form-control mr-sm-2" type="search"
+                   placeholder="Procurar na lista" aria-label="Procurar"/>
+            <br/>
+            <div id="jstree"></div>
+        </div>
+        <div class="col-lg-7">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
@@ -74,61 +155,26 @@
             {% endwith %}
             {% block content %}{% endblock %}
         </div>
-        <div class="col-md-4">
-            <div class="content-section">
-                <h4>Links rápidos</h4>
-
-                <h6 class="mt-3 ml-3">Regulamentos de barragens:</h6>
-                <div class="list-group" id="sideList" role="tablist">
-
-                    <a class="list-group-item  list-group-item-action list-group-item-info" href="rsb" id="RSB">RSB
-                        (2018)<br><small> Regulamento Segurança de Barragens</small></a>
-                    <a class="list-group-item  list-group-item-action list-group-item-info" href="rpb" id="RPB">RPB
-                        (2018)<br><small> Regulamento de Pequenas Barragens</small></a>
-                    <h6 class="mt-3 ml-3">DTA (2019)
-                        <br> Documentos Técnicos de Apoio: </h6>
-                    <a class="list-group-item  list-group-item-action list-group-item-info" href="dtaI" id="DTA_I">Parte
-                        I
-                        (Projeto)</a>
-                    <a class="list-group-item  list-group-item-action list-group-item-info" href="dtaII" id="DTA_II">Parte
-                        II (Construção)</a>
-                    <a class="list-group-item list-group-item-action list-group-item-info" href="dtaIII" id="DTA_III">Parte
-                        III (Regras de Exploração)</a>
-                    <a class="list-group-item list-group-item-action list-group-item-info" href="dtaIV" id="DTA_IV">Parte
-                        IV (Observação)</a>
-                </div>
-            </div>
+        <div class="col-lg-2">
         </div>
     </div>
 </main>
 
+
 <!-- Optional JavaScript -->
-<script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
 
-    $(".list-group-item").click(function () {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<!-- Jstree -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+<script src="{{ url_for('static', filename='ricardo_jstree.js') }}"></script>
 
 
-        // Select all list items
-        var listItems = $(".list-group-item");
-
-        // Remove 'active' tag for all list items
-        for (let i = 0; i < listItems.length; i++) {
-            listItems[i].classList.remove("active");
-        }
-        // Add 'active' tag for currently selected item
-        this.classList.add("active");
-    });
-
-    var listItems = document.getElementsByClassName('list-group-item')
-    for (let i = 0; i < listItems.length; i++) {
-        if (listItems[i].id == "{{ title }}") {
-            listItems[i].classList.add("active");
-        } else {
-            listItems[i].classList.remove("active");
-        }
-    }
-    ;
-
-</script>
 </body>
 </html>

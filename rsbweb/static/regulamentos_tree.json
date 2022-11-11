@@ -1,0 +1,2126 @@
+[
+  {
+    "name": "RSB",
+    "text": "RSB",
+    "title": "Regulamento de Segurança de Barragens",
+    "children": [
+      {
+        "name": "Capítulo I",
+        "text": "Cap I",
+        "title": "Disposições gerais",
+        "children": [
+          {
+            "name": "Secção I",
+            "text": "Sec I",
+            "title": "Objeto, âmbito e definições",
+            "children": [
+              {
+                "name": "Artigo 1.º",
+                "text": "Art 1",
+                "title": "Objeto",
+                "children": []
+              },
+              {
+                "name": "Artigo 2.º",
+                "text": "Art 2",
+                "title": "Âmbito",
+                "children": []
+              },
+              {
+                "name": "Artigo 3.º",
+                "text": "Art 3",
+                "title": "Classificação das barragens",
+                "children": []
+              },
+              {
+                "name": "Artigo 4.º",
+                "text": "Art 4",
+                "title": "Definições",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção II",
+            "text": "Sec II",
+            "title": "Organização do controlo de segurança",
+            "children": [
+              {
+                "name": "Artigo 5.º",
+                "text": "Art 5",
+                "title": "Entidades envolvidas",
+                "children": []
+              },
+              {
+                "name": "Artigo 6.º",
+                "text": "Art 6",
+                "title": "Autoridade Nacional de Segurança de Barragens",
+                "children": []
+              },
+              {
+                "name": "Artigo 7.º",
+                "text": "Art 7",
+                "title": "Laboratório Nacional de Engenharia Civil",
+                "children": []
+              },
+              {
+                "name": "Artigo 8.º",
+                "text": "Art 8",
+                "title": "Sistema Nacional de Proteção Civil",
+                "children": []
+              },
+              {
+                "name": "Artigo 9.º",
+                "text": "Art 9",
+                "title": "Comissão de Segurança de Barragens",
+                "children": []
+              },
+              {
+                "name": "Artigo 10.º",
+                "text": "Art 10",
+                "title": "Dono de obra",
+                "children": []
+              },
+              {
+                "name": "Artigo 11.º",
+                "text": "Art 11",
+                "title": "Comissões de inquérito",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Capítulo II",
+        "text": "Cap II",
+        "title": "Controlo de segurança na fase de projeto",
+        "children": [
+          {
+            "name": "Secção I",
+            "text": "Sec I",
+            "title": "Controlo de segurança na fase de projeto",
+            "children": [
+              {
+                "name": "Artigo 12.º",
+                "text": "Art 12",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 13.º",
+                "text": "Art 13",
+                "title": "Constituição do projeto",
+                "children": []
+              },
+              {
+                "name": "Artigo 14.º",
+                "text": "Art 14",
+                "title": "Barragem e sua fundação",
+                "children": []
+              },
+              {
+                "name": "Artigo 15.º",
+                "text": "Art 15",
+                "title": "Órgãos de segurança e exploração",
+                "children": []
+              },
+              {
+                "name": "Artigo 16.º",
+                "text": "Art 16",
+                "title": "Albufeira",
+                "children": []
+              },
+              {
+                "name": "Artigo 17.º",
+                "text": "Art 17",
+                "title": "Outros dispositivos e equipamentos",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção II",
+            "text": "Sec II",
+            "title": "Plano de observação",
+            "children": [
+              {
+                "name": "Artigo 18.º",
+                "text": "Art 18",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 19.º",
+                "text": "Art 19",
+                "title": "Constituição do plano de observação",
+                "children": []
+              },
+              {
+                "name": "Artigo 20.º",
+                "text": "Art 20",
+                "title": "Adaptação do plano de observação",
+                "children": []
+              },
+              {
+                "name": "Artigo 21.º",
+                "text": "Art 21",
+                "title": "Atualização do plano de observação",
+                "children": []
+              },
+              {
+                "name": "Artigo 22.º",
+                "text": "Art 22",
+                "title": "Revisões do plano de observação",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção III",
+            "text": "Sec III",
+            "title": "Controlo de segurança na fase de construção",
+            "children": [
+              {
+                "name": "Artigo 23.º",
+                "text": "Art 23",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 24.º",
+                "text": "Art 24",
+                "title": "Livro técnico da obra",
+                "children": []
+              },
+              {
+                "name": "Artigo 25.º",
+                "text": "Art 25",
+                "title": "Controlo da segurança estrutural",
+                "children": []
+              },
+              {
+                "name": "Artigo 26.º",
+                "text": "Art 26",
+                "title": "Arquivo técnico da obra relativo à construção",
+                "children": []
+              },
+              {
+                "name": "Artigo 27.º",
+                "text": "Art 27",
+                "title": "Inspeções aos trabalhos de construção",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção IV",
+            "text": "Sec IV",
+            "title": "Controlo de segurança durante o primeiro enchimento",
+            "children": [
+              {
+                "name": "Artigo 28.º",
+                "text": "Art 28",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 29.º",
+                "text": "Art 29",
+                "title": "Plano de primeiro enchimento da albufeira",
+                "children": []
+              },
+              {
+                "name": "Artigo 30.º",
+                "text": "Art 30",
+                "title": "Inspeção prévia ao primeiro enchimento",
+                "children": []
+              },
+              {
+                "name": "Artigo 31.º",
+                "text": "Art 31",
+                "title": "Controlo da segurança estrutural",
+                "children": []
+              },
+              {
+                "name": "Artigo 32.º",
+                "text": "Art 32",
+                "title": "Inspeção após o primeiro enchimento",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção V",
+            "text": "Sec V",
+            "title": "Controlo de segurança durante a fase de exploração",
+            "children": [
+              {
+                "name": "Artigo 33.º",
+                "text": "Art 33",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 34.º",
+                "text": "Art 34",
+                "title": "Regras de exploração da barragem",
+                "children": []
+              },
+              {
+                "name": "Artigo 35.º",
+                "text": "Art 35",
+                "title": "Livro técnico da obra na fase de exploração",
+                "children": []
+              },
+              {
+                "name": "Artigo 36.º",
+                "text": "Art 36",
+                "title": "Controlo da segurança estrutural",
+                "children": []
+              },
+              {
+                "name": "Artigo 37.º",
+                "text": "Art 37",
+                "title": "Controlo da segurança estrutural durante esvaziamentos rápidos",
+                "children": []
+              },
+              {
+                "name": "Artigo 38.º",
+                "text": "Art 38",
+                "title": "Controlo da segurança hidráulico-operacional",
+                "children": []
+              },
+              {
+                "name": "Artigo 39.º",
+                "text": "Art 39",
+                "title": "Controlo da segurança ambiental",
+                "children": []
+              },
+              {
+                "name": "Artigo 40.º",
+                "text": "Art 40",
+                "title": "Inspeções na fase de exploração",
+                "children": []
+              },
+              {
+                "name": "Artigo 41.º",
+                "text": "Art 41",
+                "title": "Ocorrências excecionais e circunstâncias anómalas",
+                "children": []
+              },
+              {
+                "name": "Artigo 42.º",
+                "text": "Art 42",
+                "title": "Arquivo técnico da obra relativo à exploração",
+                "children": []
+              },
+              {
+                "name": "Artigo 42.º",
+                "text": "Art 42",
+                "title": "Arquivo técnico da obra relativo à exploração",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção VI",
+            "text": "Sec VI",
+            "title": "Controlo de segurança nos casos de abandono e demolição",
+            "children": [
+              {
+                "name": "Artigo 43.º",
+                "text": "Art 43",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 44.º",
+                "text": "Art 44",
+                "title": "Projeto de abandono",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Capítulo III",
+        "text": "Cap III",
+        "title": "Medidas de proteção civil",
+        "children": [
+          {
+            "name": "Secção I",
+            "text": "Sec I",
+            "title": "Disposições gerais",
+            "children": [
+              {
+                "name": "Artigo 45.º",
+                "text": "Art 45",
+                "title": "Âmbito e zonas de intervenção",
+                "children": []
+              },
+              {
+                "name": "Artigo 46.º",
+                "text": "Art 46",
+                "title": "Planeamento de emergência",
+                "children": []
+              },
+              {
+                "name": "Artigo 47.º",
+                "text": "Art 47",
+                "title": "Sistemas de alerta e aviso",
+                "children": []
+              },
+              {
+                "name": "Artigo 48.º",
+                "text": "Art 48",
+                "title": "Procedimentos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 49.º",
+                "text": "Art 49",
+                "title": "Ações de guerra ou sabotagem",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção II",
+            "text": "Sec II",
+            "title": "Planos de emergência",
+            "children": [
+              {
+                "name": "Artigo 50.º",
+                "text": "Art 50",
+                "title": "Constituição do plano de emergência interno",
+                "children": []
+              },
+              {
+                "name": "Artigo 51.º",
+                "text": "Art 51",
+                "title": "Revisão e implementação do plano de emergência interno",
+                "children": []
+              },
+              {
+                "name": "Artigo 52.º",
+                "text": "Art 52",
+                "title": "Atualização do plano de emergência interno",
+                "children": []
+              },
+              {
+                "name": "Artigo 53.º",
+                "text": "Art 53",
+                "title": "Constituição do plano de emergência externo",
+                "children": []
+              },
+              {
+                "name": "Artigo 54.º",
+                "text": "Art 54",
+                "title": "Elaboração e atualização do plano de emergência externo",
+                "children": []
+              },
+              {
+                "name": "Artigo 54A.º",
+                "text": "Art 54A",
+                "title": "Procedimentos de emergência simplificados, para as barragens da classe II",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Capítulo IV",
+        "text": "Cap IV",
+        "title": "Disposições complementares e transitórias",
+        "children": [
+          {
+            "name": "Artigo 55.º",
+            "text": "Art 55",
+            "title": "Documentos técnicos de apoio",
+            "children": []
+          },
+          {
+            "name": "Artigo 56.º",
+            "text": "Art 56",
+            "title": "Aplicação às barragens em fase de construção, de primeiro enchimento e de exploração",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Anexo",
+        "text": "Anexo",
+        "title": "Classificação das barragens",
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "RPB",
+    "text": "RPB",
+    "title": "Regulamento de Pequenas Barragens",
+    "notes": "Diário da República, 1.ª série — N.º 62 — 28 de março de 2018 (Anexo II)",
+    "children": [
+      {
+        "name": "Artigo 1",
+        "text": "Art 1",
+        "title": "Objeto",
+        "children": []
+      },
+      {
+        "name": "Artigo 2",
+        "text": "Art 2",
+        "title": "Âmbito",
+        "children": []
+      },
+      {
+        "name": "Artigo 3",
+        "text": "Art 3",
+        "title": "Definições",
+        "children": []
+      },
+      {
+        "name": "Artigo 4",
+        "text": "Art 4",
+        "title": "Projeto",
+        "children": []
+      },
+      {
+        "name": "Artigo 5",
+        "text": "Art 5",
+        "title": "Construção",
+        "children": []
+      },
+      {
+        "name": "Artigo 6",
+        "text": "Art 6",
+        "title": "Primeiro enchimento da albufeira, para as barragens da classe II",
+        "children": []
+      },
+      {
+        "name": "Artigo 7",
+        "text": "Art 7",
+        "title": "Exploração",
+        "children": []
+      },
+      {
+        "name": "Artigo 8",
+        "text": "Art 8",
+        "title": "Disposições técnicas aplicáveis aos projetos",
+        "children": []
+      },
+      {
+        "name": "Artigo 9",
+        "text": "Art 9",
+        "title": "Disposições técnicas específicas para as barragens da classe II",
+        "children": []
+      },
+      {
+        "name": "Artigo 10",
+        "text": "Art 10",
+        "title": "Manual de apoio ao projeto, construção, exploração e reabilitação",
+        "children": []
+      },
+      {
+        "name": "Artigo 11",
+        "text": "Art 11",
+        "title": "Aplicação às barragens em fase de construção ou de exploração",
+        "children": []
+      },
+      {
+        "name": "Artigo 12",
+        "text": "Art 12",
+        "title": "Penalizações por incumprimento das disposições do presente Regulamento",
+        "children": []
+      },
+      {
+        "name": "Artigo 13",
+        "text": "Art 13",
+        "title": "Determinação da sanção aplicável",
+        "children": []
+      },
+      {
+        "name": "Artigo 14",
+        "text": "Art 14",
+        "title": "Instrução de processos e aplicação de sanções",
+        "children": []
+      },
+      {
+        "name": "Artigo 15",
+        "text": "Art 15",
+        "title": "Produto das coimas",
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "DOCUMENTO TÉCNICO DE APOIO AO PROJETO DE BARRAGENS",
+    "text": "DTA-Parte I",
+    "title": "DTA - Projeto de barragens",
+    "notes": "(Revisão da Portaria n.º 846/93, de 10 de setembro, dos Ministérios da Administração Interna, da Agricultura, da Indústria e Energia, das Obras Públicas, Transportes e Comunicações, e do Ambiente e Recursos Naturais)",
+    "children": [
+      {
+        "name": "Capítulo I",
+        "text": "Cap I",
+        "title": "Introdução",
+        "children": [
+          {
+            "name": "Artigo 1.º",
+            "text": "Art 1",
+            "title": "Objeto",
+            "children": []
+          },
+          {
+            "name": "Artigo 2.º",
+            "text": "Art 2",
+            "title": "Âmbito de aplicação",
+            "children": []
+          },
+          {
+            "name": "Artigo 3.º",
+            "text": "Art 3",
+            "title": "Fases dos estudos de uma barragem",
+            "children": []
+          },
+          {
+            "name": "Artigo 4.º",
+            "text": "Art 4",
+            "title": "Aspetos gerais da elaboração dos projetos",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo II",
+        "text": "Cap II",
+        "title": "Disposições gerais",
+        "children": [
+          {
+            "name": "Secção 1",
+            "text": "Sec 1",
+            "title": "Elementos base do projeto",
+            "children": [
+              {
+                "name": "Artigo 5.º",
+                "text": "Art 5",
+                "title": "Elementos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 6.º",
+                "text": "Art 6",
+                "title": "Estudos hidrológicos",
+                "children": []
+              },
+              {
+                "name": "Artigo 7.º",
+                "text": "Art 7",
+                "title": "Estudos geológicos, hidrogeológicos e geotécnicos",
+                "children": []
+              },
+              {
+                "name": "Artigo 8.º",
+                "text": "Art 8",
+                "title": "Estudos sismológicos",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 2",
+            "text": "Sec 2",
+            "title": "Outros elementos de projeto",
+            "children": [
+              {
+                "name": "Artigo 9.º",
+                "text": "Art 9",
+                "title": "Derivação provisória",
+                "children": []
+              },
+              {
+                "name": "Artigo 10.º",
+                "text": "Art 10",
+                "title": "Folga",
+                "children": []
+              },
+              {
+                "name": "Artigo 11.º",
+                "text": "Art 11",
+                "title": "Taludes naturais e escavações",
+                "children": []
+              },
+              {
+                "name": "Artigo 12.º",
+                "text": "Art 12",
+                "title": "Estruturas dos órgãos de segurança e exploração",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 3",
+            "text": "Sec 3",
+            "title": "Peças de projeto",
+            "children": [
+              {
+                "name": "Artigo .º",
+                "text": "Art ",
+                "title": "",
+                "children": []
+              },
+              {
+                "name": "Artigo 13.º",
+                "text": "Art 13",
+                "title": "Características gerais e finalidades da barragem",
+                "children": []
+              },
+              {
+                "name": "Artigo 14.º",
+                "text": "Art 14",
+                "title": "Peças do estudo prévio",
+                "children": []
+              },
+              {
+                "name": "Artigo 15.º",
+                "text": "Art 15",
+                "title": "Peças do projeto de execução",
+                "children": []
+              },
+              {
+                "name": "Artigo 16.º",
+                "text": "Art 16",
+                "title": "Peças do projeto de pormenorização",
+                "children": []
+              },
+              {
+                "name": "Artigo 17.º",
+                "text": "Art 17",
+                "title": "Projeto elaborado pelo método observacional",
+                "children": []
+              },
+              {
+                "name": "Artigo 18.º",
+                "text": "Art 18",
+                "title": "Impacte ambiental",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Capítulo III",
+        "text": "Cap III",
+        "title": "Disposições relativas a barragens de betão e de alvenaria",
+        "children": [
+          {
+            "name": "Secção 1",
+            "text": "Sec 1",
+            "title": "Estruturas e fundações",
+            "children": [
+              {
+                "name": "Artigo 19.º",
+                "text": "Art 19",
+                "title": "Estruturas",
+                "children": []
+              },
+              {
+                "name": "Artigo 20.º",
+                "text": "Art 20",
+                "title": "Fundações",
+                "children": []
+              },
+              {
+                "name": "Artigo 21.º",
+                "text": "Art 21",
+                "title": "Propriedades dos maciços de fundação",
+                "children": []
+              },
+              {
+                "name": "Artigo 22.º",
+                "text": "Art 22",
+                "title": "Tratamento dos maciços de fundação",
+                "children": []
+              },
+              {
+                "name": "Artigo 23.º",
+                "text": "Art 23",
+                "title": "Materiais, fabrico e colocação do betão",
+                "children": []
+              },
+              {
+                "name": "Artigo 24.º",
+                "text": "Art 24",
+                "title": "Materiais e execução das alvenarias",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 2",
+            "text": "Sec 2",
+            "title": "Ações",
+            "children": [
+              {
+                "name": "Artigo 25.º",
+                "text": "Art 25",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 26.º",
+                "text": "Art 26",
+                "title": "Ações devidas à construção",
+                "children": []
+              },
+              {
+                "name": "Artigo 27.º",
+                "text": "Art 27",
+                "title": "Ações da água",
+                "children": []
+              },
+              {
+                "name": "Artigo 28.º",
+                "text": "Art 28",
+                "title": "Ações térmicas ambientais",
+                "children": []
+              },
+              {
+                "name": "Artigo 29.º",
+                "text": "Art 29",
+                "title": " Ações sísmicas",
+                "children": []
+              },
+              {
+                "name": "Artigo 30.º",
+                "text": "Art 30",
+                "title": "Ações do gelo e do caudal sólido",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 3",
+            "text": "Sec 3",
+            "title": "Dimensionamento e verificação da funcionalidade e da segurança",
+            "children": [
+              {
+                "name": "Artigo 31.º",
+                "text": "Art 31",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 32.º",
+                "text": "Art 32",
+                "title": "Cenários de incidente e de acidente e situações de projeto",
+                "children": []
+              },
+              {
+                "name": "Artigo 33.º",
+                "text": "Art 33",
+                "title": "Modelos e métodos da análise",
+                "children": []
+              },
+              {
+                "name": "Artigo 34.º",
+                "text": "Art 34",
+                "title": "Verificação da funcionalidade e da segurança para cenários de incidente e de acidente",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Capítulo IV",
+        "text": "Cap IV",
+        "title": "Disposições relativas a barragens de aterro",
+        "children": [
+          {
+            "name": "Artigo 35.º",
+            "text": "Art 35",
+            "title": " Aspetos gerais",
+            "children": []
+          },
+          {
+            "name": "Artigo 36.º",
+            "text": "Art 36",
+            "title": "Critérios gerais de dimensionamento",
+            "children": []
+          },
+          {
+            "name": "Artigo 37.º",
+            "text": "Art 37",
+            "title": "Situações de projeto",
+            "children": []
+          },
+          {
+            "name": "Artigo 38.º",
+            "text": "Art 38",
+            "title": "Durabilidade",
+            "children": []
+          },
+          {
+            "name": "Artigo 39.º",
+            "text": "Art 39",
+            "title": "Dimensionamento baseado em modelos de cálculo",
+            "children": []
+          },
+          {
+            "name": "Artigo 40.º",
+            "text": "Art 40",
+            "title": "Ações",
+            "children": []
+          },
+          {
+            "name": "Artigo 41.º",
+            "text": "Art 41",
+            "title": "Propriedades dos geomateriais naturais ou processados",
+            "children": []
+          },
+          {
+            "name": "Artigo 42.º",
+            "text": "Art 42",
+            "title": "Grandezas geométricas",
+            "children": []
+          },
+          {
+            "name": "Artigo 43.º",
+            "text": "Art 43",
+            "title": "Valores representativos e característicos",
+            "children": []
+          },
+          {
+            "name": "Artigo 44.º",
+            "text": "Art 44",
+            "title": "Valores de cálculo",
+            "children": []
+          },
+          {
+            "name": "Artigo 45.º",
+            "text": "Art 45",
+            "title": "Tipos de estado limite último",
+            "children": []
+          },
+          {
+            "name": "Artigo 46.º",
+            "text": "Art 46",
+            "title": "Estados limite",
+            "children": []
+          },
+          {
+            "name": "Artigo 47.º",
+            "text": "Art 47",
+            "title": "Verificação da segurança para estados limite tipo GEO, STR, UPL e HYD",
+            "children": []
+          },
+          {
+            "name": "Artigo 48.º",
+            "text": "Art 48",
+            "title": "Verificação da segurança para estados limite de utilização",
+            "children": []
+          },
+          {
+            "name": "Artigo 49.º",
+            "text": "Art 49",
+            "title": "Dimensionamento por medidas prescritivas",
+            "children": []
+          },
+          {
+            "name": "Artigo 50.º",
+            "text": "Art 50",
+            "title": "Ensaios em modelos experimentais",
+            "children": []
+          },
+          {
+            "name": "Artigo 51.º",
+            "text": "Art 51",
+            "title": "Ensaios em modelos experimentais",
+            "children": []
+          },
+          {
+            "name": "Artigo 52.º",
+            "text": "Art 52",
+            "title": "Ensaios em modelos experimentais",
+            "children": []
+          },
+          {
+            "name": "Artigo 51.º",
+            "text": "Art 51",
+            "title": "Outras disposições do projeto",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo V",
+        "text": "Cap V",
+        "title": "Disposições relativas aos órgãos de segurança e exploração",
+        "children": [
+          {
+            "name": "Artigo 52.º",
+            "text": "Art 52",
+            "title": "Órgãos de segurança e exploração",
+            "children": []
+          },
+          {
+            "name": "Artigo 53.º",
+            "text": "Art 53",
+            "title": " Descarregadores de cheias",
+            "children": []
+          },
+          {
+            "name": "Artigo 54.º",
+            "text": "Art 54",
+            "title": "Descargas de fundo",
+            "children": []
+          },
+          {
+            "name": "Artigo 55.º",
+            "text": "Art 55",
+            "title": "Tomadas de água",
+            "children": []
+          },
+          {
+            "name": "Artigo 56.º",
+            "text": "Art 56",
+            "title": "Centrais e circuitos hidráulicos associados à barragem",
+            "children": []
+          },
+          {
+            "name": "Artigo 57.º",
+            "text": "Art 57",
+            "title": "Restituições",
+            "children": []
+          },
+          {
+            "name": "Artigo 58.º",
+            "text": "Art 58",
+            "title": "Equipamentos de regulação e de obturação",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo VI",
+        "text": "Cap VI",
+        "title": "Disposições relativas à albufeira e ao vale a jusante",
+        "children": [
+          {
+            "name": "Artigo 59.º",
+            "text": "Art 59",
+            "title": "Aspetos gerais",
+            "children": []
+          },
+          {
+            "name": "Artigo 60.º",
+            "text": "Art 60",
+            "title": " Estudos da albufeira",
+            "children": []
+          },
+          {
+            "name": "Artigo 61.º",
+            "text": "Art 61",
+            "title": "Cadastro da zona da albufeira",
+            "children": []
+          },
+          {
+            "name": "Artigo 62.º",
+            "text": "Art 62",
+            "title": "Área inundável em caso de rotura",
+            "children": []
+          },
+          {
+            "name": "Artigo 63.º",
+            "text": "Art 63",
+            "title": "Planeamento de emergência",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Anexo I",
+        "text": "Anexo I",
+        "title": "Cheias a adotar nos projetos de barragens",
+        "children": []
+      },
+      {
+        "name": "Anexo II",
+        "text": "Anexo II",
+        "title": "Sismos a adotar nos projetos de barragens",
+        "children": []
+      },
+      {
+        "name": "Anexo III",
+        "text": "Anexo III",
+        "title": "Dimensionamento de barragens de aterro",
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "DOCUMENTO TÉCNICO DE APOIO DA CONSTRUÇÃO DE BARRAGENS",
+    "text": "DTA-Parte II",
+    "title": "DTA - Construção de barragens)",
+    "notes": "(Revisão da Portaria n.º 246/98, de 21 de Abril, dos Ministérios da Defesa Nacional, da Administração Interna, do Equipamento, do Planeamento e da Administração do Território, da Economia, da Agricultura, do Desenvolvimento Rural e das Pescas, e do Ambiente)",
+    "children": [
+      {
+        "name": "Capítulo I",
+        "text": "Cap I",
+        "title": "Introdução",
+        "children": [
+          {
+            "name": "Artigo 1.º",
+            "text": "Art 1",
+            "title": "Objeto do Documento Técnico",
+            "children": []
+          },
+          {
+            "name": "Artigo 2.º",
+            "text": "Art 2",
+            "title": "Âmbito de aplicação",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo II",
+        "text": "Cap II",
+        "title": "Disposições gerais",
+        "children": [
+          {
+            "name": "Secção 1",
+            "text": "Sec 1",
+            "title": "Organização e controlo das actividades de construção",
+            "children": [
+              {
+                "name": "Artigo 3.º",
+                "text": "Art 3",
+                "title": "Diretor técnico da obra",
+                "children": []
+              },
+              {
+                "name": "Artigo 4.º",
+                "text": "Art 4",
+                "title": "Livro técnico da obra",
+                "children": []
+              },
+              {
+                "name": "Artigo 5.º",
+                "text": "Art 5",
+                "title": "Arquivo técnico da obra",
+                "children": []
+              },
+              {
+                "name": "Artigo 6.º",
+                "text": "Art 6",
+                "title": "Fiscalização",
+                "children": []
+              },
+              {
+                "name": "Artigo 7.º",
+                "text": "Art 7",
+                "title": "Controlo de segurança",
+                "children": []
+              },
+              {
+                "name": "Artigo 8.º",
+                "text": "Art 8",
+                "title": "Segurança no trabalho",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 2",
+            "text": "Sec 2",
+            "title": "Desenvolvimento das atividades de construção",
+            "children": [
+              {
+                "name": "Artigo 9.º",
+                "text": "Art 9",
+                "title": "Plano de construção",
+                "children": []
+              },
+              {
+                "name": "Artigo 10.º",
+                "text": "Art 10",
+                "title": "Materiais a empregar e suas origens",
+                "children": []
+              },
+              {
+                "name": "Artigo 11.º",
+                "text": "Art 11",
+                "title": "Implantação da obra",
+                "children": []
+              },
+              {
+                "name": "Artigo 12.º",
+                "text": "Art 12",
+                "title": "Medições",
+                "children": []
+              },
+              {
+                "name": "Artigo 13.º",
+                "text": "Art 13",
+                "title": "Acessos e comunicações",
+                "children": []
+              },
+              {
+                "name": "Artigo 14.º",
+                "text": "Art 14",
+                "title": "Estaleiro",
+                "children": []
+              },
+              {
+                "name": "Artigo 15.º",
+                "text": "Art 15",
+                "title": "Zonas de empréstimo",
+                "children": []
+              },
+              {
+                "name": "Artigo 16.º",
+                "text": "Art 16",
+                "title": "Escavações e depósitos",
+                "children": []
+              },
+              {
+                "name": "Artigo 17.º",
+                "text": "Art 17",
+                "title": "Estratégia de construção com desvio provisório",
+                "children": []
+              },
+              {
+                "name": "Artigo 18.º",
+                "text": "Art 18",
+                "title": "Desarborização e desmatagem da albufeira",
+                "children": []
+              },
+              {
+                "name": "Artigo 19.º",
+                "text": "Art 19",
+                "title": "Equipamentos",
+                "children": []
+              },
+              {
+                "name": "Artigo 20.º",
+                "text": "Art 20",
+                "title": "Instalações elétricas",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Capítulo III",
+        "text": "Cap III",
+        "title": "Disposições relativas a barragens de betão e de alvenaria",
+        "children": [
+          {
+            "name": "Secção 1",
+            "text": "Sec 1",
+            "title": "Materiais para barragens de betão",
+            "children": [
+              {
+                "name": "Artigo 21.º",
+                "text": "Art 21",
+                "title": "Agregados e granulometrias",
+                "children": []
+              },
+              {
+                "name": "Artigo 22.º",
+                "text": "Art 22",
+                "title": "Cimentos, pozolanas e cinzas volantes",
+                "children": []
+              },
+              {
+                "name": "Artigo 23.º",
+                "text": "Art 23",
+                "title": "Água",
+                "children": []
+              },
+              {
+                "name": "Artigo 24.º",
+                "text": "Art 24",
+                "title": "Adjuvantes",
+                "children": []
+              },
+              {
+                "name": "Artigo 25.º",
+                "text": "Art 25",
+                "title": "Aços",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 2",
+            "text": "Sec 2",
+            "title": "Barragens de betão convencional",
+            "children": [
+              {
+                "name": "Artigo 26.º",
+                "text": "Art 26",
+                "title": "Composição dos betões",
+                "children": []
+              },
+              {
+                "name": "Artigo 27.º",
+                "text": "Art 27",
+                "title": "Fabrico do betão",
+                "children": []
+              },
+              {
+                "name": "Artigo 28.º",
+                "text": "Art 28",
+                "title": "Transporte, colocação e compactação do betão",
+                "children": []
+              },
+              {
+                "name": "Artigo 29.º",
+                "text": "Art 29",
+                "title": "Superfície de fundação e juntas de betonagem",
+                "children": []
+              },
+              {
+                "name": "Artigo 30.º",
+                "text": "Art 30",
+                "title": "Cofragens",
+                "children": []
+              },
+              {
+                "name": "Artigo 31.º",
+                "text": "Art 31",
+                "title": "Juntas de contração e injeções",
+                "children": []
+              },
+              {
+                "name": "Artigo 32.º",
+                "text": "Art 32",
+                "title": "Cura do betão e desmoldagem",
+                "children": []
+              },
+              {
+                "name": "Artigo 33.º",
+                "text": "Art 33",
+                "title": "Colocação do betão em tempo frio ou de chuva",
+                "children": []
+              },
+              {
+                "name": "Artigo 34.º",
+                "text": "Art 34",
+                "title": "Dissipação do calor de hidratação",
+                "children": []
+              },
+              {
+                "name": "Artigo 35.º",
+                "text": "Art 35",
+                "title": "Plano de betonagem",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 3",
+            "text": "Sec 3",
+            "title": "Barragens de betão compactado com cilíndro",
+            "children": [
+              {
+                "name": "Artigo 36.º",
+                "text": "Art 36",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 37.º",
+                "text": "Art 37",
+                "title": "Composição dos betões",
+                "children": []
+              },
+              {
+                "name": "Artigo 38.º",
+                "text": "Art 38",
+                "title": "Bloco experimental",
+                "children": []
+              },
+              {
+                "name": "Artigo 39.º",
+                "text": "Art 39",
+                "title": "Armazenamento e transporte dos agregados",
+                "children": []
+              },
+              {
+                "name": "Artigo 40.º",
+                "text": "Art 40",
+                "title": "Fabrico de betão",
+                "children": []
+              },
+              {
+                "name": "Artigo 41.º",
+                "text": "Art 41",
+                "title": "Transporte, colocação e compactação do betão",
+                "children": []
+              },
+              {
+                "name": "Artigo 42.º",
+                "text": "Art 42",
+                "title": "Controlo de qualidade do betão em obra",
+                "children": []
+              },
+              {
+                "name": "Artigo 43.º",
+                "text": "Art 43",
+                "title": "Superfície de fundação e juntas de betonagem",
+                "children": []
+              },
+              {
+                "name": "Artigo 44.º",
+                "text": "Art 44",
+                "title": "Betonagem em condições desfavoráveis",
+                "children": []
+              },
+              {
+                "name": "Artigo 45.º",
+                "text": "Art 45",
+                "title": "Cofragens",
+                "children": []
+              },
+              {
+                "name": "Artigo 46.º",
+                "text": "Art 46",
+                "title": "Juntas de contração e seu tratamento",
+                "children": []
+              },
+              {
+                "name": "Artigo 48.º",
+                "text": "Art 48",
+                "title": "Plano de betonagem",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 4",
+            "text": "Sec 4",
+            "title": "Barragens de alvenaria",
+            "children": [
+              {
+                "name": "Artigo 49.º",
+                "text": "Art 49",
+                "title": "Materiais para alvenarias",
+                "children": []
+              },
+              {
+                "name": "Artigo 50.º",
+                "text": "Art 50",
+                "title": "Execução das alvenarias",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 5",
+            "text": "Sec 5",
+            "title": "Fundações e seu tratamento",
+            "children": [
+              {
+                "name": "Artigo 51.º",
+                "text": "Art 51",
+                "title": "Consolidação, impermeabilização e drenagem da fundação",
+                "children": []
+              },
+              {
+                "name": "Artigo 52.º",
+                "text": "Art 52",
+                "title": "Controlo dos trabalhos de consolidação e impermeabilização de fundações",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Capítulo IV",
+        "text": "Cap IV",
+        "title": "Disposições relativas a barragens de aterro",
+        "children": [
+          {
+            "name": "Artigo 53.º",
+            "text": "Art 53",
+            "title": "Materiais para aterros",
+            "children": []
+          },
+          {
+            "name": "Artigo 54.º",
+            "text": "Art 54",
+            "title": "Aterros experimentais",
+            "children": []
+          },
+          {
+            "name": "Artigo 55.º",
+            "text": "Art 55",
+            "title": "Filtros",
+            "children": []
+          },
+          {
+            "name": "Artigo 56.º",
+            "text": "Art 56",
+            "title": "Proteção dos paramentos",
+            "children": []
+          },
+          {
+            "name": "Artigo 57.º",
+            "text": "Art 57",
+            "title": "Elementos de estanquidade no paramento de montante",
+            "children": []
+          },
+          {
+            "name": "Artigo 58.º",
+            "text": "Art 58",
+            "title": "Materiais diversos",
+            "children": []
+          },
+          {
+            "name": "Artigo 59.º",
+            "text": "Art 59",
+            "title": "Preparação das fundações",
+            "children": []
+          },
+          {
+            "name": "Artigo 60.º",
+            "text": "Art 60",
+            "title": "Colocação dos aterros",
+            "children": []
+          },
+          {
+            "name": "Artigo 61.º",
+            "text": "Art 61",
+            "title": "Controlo da construção",
+            "children": []
+          },
+          {
+            "name": "Artigo 62.º",
+            "text": "Art 62",
+            "title": "Consolidação e impermeabilização das fundações",
+            "children": []
+          },
+          {
+            "name": "Artigo 63.º",
+            "text": "Art 63",
+            "title": "Controlo da consolidação e impermeabilização das fundações",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "DOCUMENTO TÉCNICO DE APOIO DA EXPLORAÇÃO DE BARRAGENS",
+    "text": "DTA-Parte III",
+    "title": "DTA - Exploração de barragens)",
+    "notes": "",
+    "children": [
+      {
+        "name": "Capítulo I",
+        "text": "Cap I",
+        "title": "Introdução",
+        "children": [
+          {
+            "name": "Artigo 1.º",
+            "text": "Art 1",
+            "title": "Objeto e âmbito",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo II",
+        "text": "Cap II",
+        "title": "Organização das atividades de exploração",
+        "children": [
+          {
+            "name": "Artigo 2.º",
+            "text": "Art 2",
+            "title": "Aspetos gerais",
+            "children": []
+          },
+          {
+            "name": "Artigo 3.º",
+            "text": "Art 3",
+            "title": "Manual de exploração",
+            "children": []
+          },
+          {
+            "name": "Artigo 4.º",
+            "text": "Art 4",
+            "title": " Livro técnico da obra",
+            "children": []
+          },
+          {
+            "name": "Artigo 5.º",
+            "text": "Art 5",
+            "title": "Arquivo técnico da obra relativo à exploração",
+            "children": []
+          },
+          {
+            "name": "Artigo 6.º",
+            "text": "Art 6",
+            "title": "Técnico responsável pela exploração",
+            "children": []
+          },
+          {
+            "name": "Artigo 7.º",
+            "text": "Art 7",
+            "title": "Modelos de organização das atividades de exploração",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo III",
+        "text": "Cap III",
+        "title": "Regras de exploração da barragem",
+        "children": [
+          {
+            "name": "Secção 1",
+            "text": "Sec 1",
+            "title": "Exploração da albufeira",
+            "children": [
+              {
+                "name": "Artigo 8.º",
+                "text": "Art 8",
+                "title": "Regras de exploração da albufeira",
+                "children": []
+              },
+              {
+                "name": "Artigo 9.º",
+                "text": "Art 9",
+                "title": "Comissão de Gestão de Albufeiras",
+                "children": []
+              },
+              {
+                "name": "Artigo 10.º",
+                "text": "Art 10",
+                "title": "Medidas especiais de proteção pública",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 2",
+            "text": "Sec 2",
+            "title": "Operação dos órgãos de segurança e exploração",
+            "children": [
+              {
+                "name": "Artigo 11.º",
+                "text": "Art 11",
+                "title": "Aspetos gerais",
+                "children": []
+              },
+              {
+                "name": "Artigo 12.º",
+                "text": "Art 12",
+                "title": "Regras de operação dos órgãos de segurança e exploração",
+                "children": []
+              },
+              {
+                "name": "Artigo 13.º",
+                "text": "Art 13",
+                "title": "Operação em regime de cheia",
+                "children": []
+              },
+              {
+                "name": "Artigo 14.º",
+                "text": "Art 14",
+                "title": "Recolha e registo de dados",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Secção 3",
+            "text": "Sec 3",
+            "title": "Conservação das estruturas e manutenção dos equipamentos",
+            "children": [
+              {
+                "name": "Secção 3.1",
+                "text": "Sec 3.1",
+                "title": "Conservação das estruturas",
+                "children": [
+                  {
+                    "name": "Artigo 15.º",
+                    "text": "Art 15",
+                    "title": "Aspetos gerais",
+                    "children": []
+                  },
+                  {
+                    "name": "Artigo 16.º",
+                    "text": "Art 16",
+                    "title": "Conservação corrente ou manutenção",
+                    "children": []
+                  },
+                  {
+                    "name": "Artigo 17.º",
+                    "text": "Art 17",
+                    "title": "Grande conservação ou reabilitação",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Secção 3.2",
+                "text": "Sec 3.2",
+                "title": "Manutenção dos equipamentos",
+                "children": [
+                  {
+                    "name": "Artigo 18.º",
+                    "text": "Art 18",
+                    "title": "Aspetos gerais",
+                    "children": []
+                  },
+                  {
+                    "name": "Artigo 19.º",
+                    "text": "Art 19",
+                    "title": "Aspetos gerais",
+                    "children": []
+                  },
+                  {
+                    "name": "Artigo 19.º",
+                    "text": "Art 19",
+                    "title": "Tipos de manutenção",
+                    "children": []
+                  },
+                  {
+                    "name": "Artigo 20.º",
+                    "text": "Art 20",
+                    "title": "Ações de manutenção",
+                    "children": []
+                  },
+                  {
+                    "name": "Artigo 21.º",
+                    "text": "Art 21",
+                    "title": "Planeamento dos trabalhos",
+                    "children": []
+                  },
+                  {
+                    "name": "Artigo 22.º",
+                    "text": "Art 22",
+                    "title": "Modernização de equipamentos",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Capítulo IV",
+        "text": "Cap IV",
+        "title": "Medidas a tomar nos casos de ocorrências excepcionais ou circunstâncias anómalas",
+        "children": [
+          {
+            "name": "Artigo 23.º",
+            "text": "Art 23",
+            "title": "Aspetos gerais",
+            "children": []
+          },
+          {
+            "name": "Artigo 24.º",
+            "text": "Art 24",
+            "title": "Medidas imediatas e procedimentos de aviso e alerta",
+            "children": []
+          },
+          {
+            "name": "Artigo 25.º",
+            "text": "Art 25",
+            "title": "Inspeções",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "DOCUMENTO TÉCNICO DE APOIO DA OBSERVAÇÃO E INSPEÇÃO DE BARRAGENS",
+    "text": "DTA-Parte IV",
+    "title": "DTA - Observação de barragens",
+    "notes": "(Revisão da Portaria n.º 847/93, de 10 de Setembro, dos Ministérios da Administração Interna, da Agricultura, da Indústria e Energia, das Obras Públicas, Transportes e Comunicações, e do Ambiente e Recursos Naturais)",
+
+    "children": [
+      {
+        "name": "Capítulo I",
+        "text": "Cap I",
+        "title": "Introdução",
+        "children": [
+          {
+            "name": "Artigo 1.º",
+            "text": "Art 1",
+            "title": "Objeto deste Documento Técnico",
+            "children": []
+          },
+          {
+            "name": "Artigo 2.º",
+            "text": "Art 2",
+            "title": "Âmbito de aplicação",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo II",
+        "text": "Cap II",
+        "title": "Organização das atividades de observação e inspeção",
+        "children": [
+          {
+            "name": "Artigo 3.º",
+            "text": "Art 3",
+            "title": "Competências das entidades envolvidas nas atividades de observação e inspeção",
+            "children": []
+          },
+          {
+            "name": "Artigo 4.º",
+            "text": "Art 4",
+            "title": "Colaboração entre as entidades envolvidas nas atividades de observação",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo III",
+        "text": "Cap III",
+        "title": "Plano de observação",
+        "children": [
+          {
+            "name": "Artigo 5.º",
+            "text": "Art 5",
+            "title": "Aspetos gerais",
+            "children": []
+          },
+          {
+            "name": "Artigo 6.º",
+            "text": "Art 6",
+            "title": "Elaboração do plano de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 7.º",
+            "text": "Art 7",
+            "title": "Adaptação do plano de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 8.º",
+            "text": "Art 8",
+            "title": "Atualização do plano de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 9.º",
+            "text": "Art 9",
+            "title": "Revisões do plano de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 10.º",
+            "text": "Art 10",
+            "title": "Constituição do plano de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 11.º",
+            "text": "Art 11",
+            "title": "Inspeções visuais",
+            "children": []
+          },
+          {
+            "name": "Artigo 12.º",
+            "text": "Art 12",
+            "title": "Definição do sistema de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 13.º",
+            "text": "Art 13",
+            "title": "Instalação dos dispositivos de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 14.º",
+            "text": "Art 14",
+            "title": "Frequência das leituras",
+            "children": []
+          },
+          {
+            "name": "Artigo 15.º",
+            "text": "Art 15",
+            "title": "Recolha e processamento dos dados",
+            "children": []
+          },
+          {
+            "name": "Artigo 16.º",
+            "text": "Art 16",
+            "title": "Procedimentos e esquema de comunicação, no caso de ocorrências excecionais ou de comportamentos anómalos",
+            "children": []
+          },
+          {
+            "name": "Artigo 17.º",
+            "text": "Art 17",
+            "title": "Relatórios sobre a instalação e exploração do sistema de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 18.º",
+            "text": "Art 18",
+            "title": "Qualificação dos agentes encarregados da instalação e exploração do sistema de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 19.º",
+            "text": "Art 19",
+            "title": "Análise do comportamento e avaliação da segurança",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo IV",
+        "text": "Cap IV",
+        "title": "Fase de construção",
+        "children": [
+          {
+            "name": "Artigo 20.º",
+            "text": "Art 20",
+            "title": "Aspetos gerais",
+            "children": []
+          },
+          {
+            "name": "Artigo 21.º",
+            "text": "Art 21",
+            "title": "Inspeções visuais",
+            "children": []
+          },
+          {
+            "name": "Artigo 22.º",
+            "text": "Art 22",
+            "title": "Instalação dos dispositivos de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 23.º",
+            "text": "Art 23",
+            "title": "Adaptação do plano de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 24.º",
+            "text": "Art 24",
+            "title": "Recolha e validação dos dados e resultados da observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 25.º",
+            "text": "Art 25",
+            "title": "Arquivo dos dados da observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 26.º",
+            "text": "Art 26",
+            "title": "Análise e interpretação dos resultados",
+            "children": []
+          },
+          {
+            "name": "Artigo 27.º",
+            "text": "Art 27",
+            "title": "Elementos a incluir no livro e arquivo técnicos",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo V",
+        "text": "Cap V",
+        "title": "Fase de primeiro enchimento",
+        "children": [
+          {
+            "name": "Artigo 28.º",
+            "text": "Art 28",
+            "title": "Aspetos gerais",
+            "children": []
+          },
+          {
+            "name": "Artigo 29.º",
+            "text": "Art 29",
+            "title": "Plano de primeiro enchimento",
+            "children": []
+          },
+          {
+            "name": "Artigo 30.º",
+            "text": "Art 30",
+            "title": "Inspeção prévia ao primeiro enchimento",
+            "children": []
+          },
+          {
+            "name": "Artigo 31.º",
+            "text": "Art 31",
+            "title": "Exploração do sistema de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 32.º",
+            "text": "Art 32",
+            "title": "Comunicação de informações",
+            "children": []
+          },
+          {
+            "name": "Artigo 33.º",
+            "text": "Art 33",
+            "title": "Análise do comportamento e avaliação da segurança",
+            "children": []
+          },
+          {
+            "name": "Artigo 34.º",
+            "text": "Art 34",
+            "title": "Relatório final de primeiro enchimento",
+            "children": []
+          },
+          {
+            "name": "Artigo 35.º",
+            "text": "Art 35",
+            "title": "Livro e arquivo técnicos da obra",
+            "children": []
+          },
+          {
+            "name": "Artigo 36.º",
+            "text": "Art 36",
+            "title": "Atualização do plano de observação",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo VI",
+        "text": "Cap VI",
+        "title": "Fase de exploração",
+        "children": [
+          {
+            "name": "Artigo 37.º",
+            "text": "Art 37",
+            "title": "Aspetos gerais",
+            "children": []
+          },
+          {
+            "name": "Artigo 38.º",
+            "text": "Art 38",
+            "title": "Exploração do sistema de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 39.º",
+            "text": "Art 39",
+            "title": "Controlo de segurança estrutural durante esvaziamentos rápidos que possam dar origem a situações de risco elevado ou significativo",
+            "children": []
+          },
+          {
+            "name": "Artigo 40.º",
+            "text": "Art 40",
+            "title": "Inspeções visuais",
+            "children": []
+          },
+          {
+            "name": "Artigo 41.º",
+            "text": "Art 41",
+            "title": "Comunicação de informações",
+            "children": []
+          },
+          {
+            "name": "Artigo 42.º",
+            "text": "Art 42",
+            "title": "Inspeções regulamentares",
+            "children": []
+          },
+          {
+            "name": "Artigo 43.º",
+            "text": "Art 43",
+            "title": "Análise do comportamento e avaliação da segurança",
+            "children": []
+          },
+          {
+            "name": "Artigo 44.º",
+            "text": "Art 44",
+            "title": "Manutenção do sistema de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 45.º",
+            "text": "Art 45",
+            "title": "Arquivo informático dos dados de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 46.º",
+            "text": "Art 46",
+            "title": "Atualizações do plano de observação",
+            "children": []
+          },
+          {
+            "name": "Artigo 47.º",
+            "text": "Art 47",
+            "title": "Livro e arquivo técnicos da obra",
+            "children": []
+          },
+          {
+            "name": "Artigo 48.º",
+            "text": "Art 48",
+            "title": "Cheias e sismos",
+            "children": []
+          },
+          {
+            "name": "Artigo 49.º",
+            "text": "Art 49",
+            "title": "Inspeções visuais após a ocorrência de cheias e sismos",
+            "children": []
+          },
+          {
+            "name": "Artigo 50.º",
+            "text": "Art 50",
+            "title": "Outras ocorrências excecionais ou circunstâncias anómalas",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Capítulo VII",
+        "text": "Cap VII",
+        "title": "Fase de abandono e demolição",
+        "children": [
+          {
+            "name": "Artigo 51.º",
+            "text": "Art 51",
+            "title": "Aspetos gerais",
+            "children": []
+          },
+          {
+            "name": "Artigo 52.º",
+            "text": "Art 52",
+            "title": "Controlo de segurança das estruturas que permanecem",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Anexo",
+        "text": "Anexo",
+        "title": "",
+        "children": [
+        ]
+      }
+    ]
+  }
+]
