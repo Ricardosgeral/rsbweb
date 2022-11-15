@@ -14,12 +14,10 @@
 
 
 
-
-
     {% if title %}
-        <title>Flask Blog - {{ title }}</title>
+        <title>Barragens - {{ title }}</title>
     {% else %}
-        <title>Flask Blog</title>
+        <title>Barragens</title>
     {% endif %}
 </head>
 <body>
@@ -47,7 +45,12 @@
                         Regulamentos
                     </a>
                     <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
+                        <h4 class="dropdown-header">Regulamentação Portuguesa</h4>
+                        <a class="dropdown-item btn btn-secondary" href="regulamentos">Tudo</a>
+
+                        <div class="dropdown-divider"></div>
                         <h5 class="dropdown-header">Regulamentos (DR 2018)</h5>
+
 
                         <a class="dropdown-item btn btn-secondary" href="rsb">RSB</a>
                         <a class="dropdown-item" href="rpb">RPB</a>
@@ -137,12 +140,12 @@
 <main role="main" class="container">
     <div class="row">
 
+        {#lado esquerdo#}
         <div class="col-lg-3">
-            <input id="search-input" class="search-input form-control mr-sm-2" type="search"
-                   placeholder="Procurar na lista" aria-label="Procurar"/>
-            <br/>
-            <div id="jstree"></div>
+            {% block col_esq %}{% endblock %}
         </div>
+
+        {#centro#}
         <div class="col-lg-7">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -153,9 +156,13 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
-            {% block content %}{% endblock %}
+            {% block col_central %}{% endblock %}
+
         </div>
+        {#    lado direito#}
         <div class="col-lg-2">
+            {% block col_drt %}{% endblock %}
+
         </div>
     </div>
 </main>

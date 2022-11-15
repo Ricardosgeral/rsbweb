@@ -13,6 +13,12 @@ def home():
     return render_template('home.html', posts=posts)
 
 
+@main.route("/regulamentos")
+@main.route("/regulamentos.html")
+def reg_regulamentos():
+    return render_template('regulamentos.html')
+
+
 @main.route("/rsb")
 def reg_rsb():
     rsb = regs[0]
