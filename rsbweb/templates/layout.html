@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css"/>
 
-
+    <script src="https://kit.fontawesome.com/efb8be0006.js" crossorigin="anonymous"></script>
 
     {% if title %}
         <title>Barragens - {{ title }}</title>
@@ -23,121 +23,149 @@
 <body>
 <header class="site-header">
 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="{{ url_for('main.home') }}"><img src="../static/images/logo_reg.png"
+            ></a>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="#">Barragens</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="fas fa-bars text-light"></i>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('main.home') }}">Início <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.about') }}">Acerca</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Regulamentos
-                    </a>
-                    <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-                        <h4 class="dropdown-header">Regulamentação Portuguesa</h4>
-                        <a class="dropdown-item btn btn-secondary" href="regulamentos">Tudo</a>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+{#                    <li class="nav-item text-center mx-2 mx-lg-1">#}
+{#                        <a class="nav-link active" aria-current="page" href="{{ url_for('main.home') }}">#}
+{#                            <div>#}
+{#                                <i class="fas fa-home fa-lg mb-1"></i>#}
+{#                            </div>#}
+{#                            Início#}
+{#                        </a>#}
+{#                    </li>#}
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link" href="{{ url_for('main.about') }}">
+                            <div>
+                                <i class="far fa-envelope fa-lg mb-1"></i>
+                            </div>
+                            Acerca
+                        </a>
+                    </li>
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link disabled" aria-disabled="true" href="#!">
+                            <div>
+                                <i class="far fa-envelope fa-lg mb-1"></i>
+                            </div>
+                            Privados
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <div>
+                                <i class="fa-solid fa-book-open fa-lg mb-1"></i>
+                            </div>
+                            Regulamentação
+                        </a>
 
-                        <div class="dropdown-divider"></div>
-                        <h5 class="dropdown-header">Regulamentos (DR 2018)</h5>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+
+                            <li><a class="dropdown-item" href="{{ url_for('main.reg_regulamentos') }}">Tudo</a></li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li><p class="dropdown-header">Documentos legais</p></li>
+                            <li><a class="dropdown-item" href="{{ url_for('main.reg_rsb') }}">RSB</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('main.reg_rpb') }}">RPB</a></li>
+                            <li>
+                                <hr class="dropdown-divider"/>
+                            </li>
+                            <li><p class="dropdown-header">Documentos técnicos <br> de apoio (DTA)</p></li>
+
+                            <li>
+                                <a class="dropdown-item" href="{{ url_for('main.reg_dtaI') }}">Parte 1 (projeto)</a>
+                                <a class="dropdown-item" href="{{ url_for('main.reg_dtaII') }}">Parte 2 (construção)</a>
+                                <a class="dropdown-item" href="{{ url_for('main.reg_dtaIII') }}">Parte 3
+                                    (exploração)</a>
+                                <a class="dropdown-item" href="{{ url_for('main.reg_dtaIV') }}">Parte 4 (pbservação)</a>
+
+                            </li>
+                        </ul>
 
 
-                        <a class="dropdown-item btn btn-secondary" href="rsb">RSB</a>
-                        <a class="dropdown-item" href="rpb">RPB</a>
-                        <div class="dropdown-divider"></div>
-                        <h5 class="dropdown-header">Documentos Técnicos de Apoio <br> (APA, 2019)</h5>
-                        <a class="dropdown-item" href="dtaI">Parte I (projeto)</a>
-                        <a class="dropdown-item" href="dtaII">Parte II (construção)</a>
-                        <a class="dropdown-item" href="dtaIII">Parte III (exploração)</a>
-                        <a class="dropdown-item" href="dtaIV">DTA IV (observação)</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Procurar no site" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Procurar</button>
-            </form>
+                    </li>
+                </ul>
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+                    {% if current_user.is_authenticated %}
 
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-                {% if current_user.is_authenticated %}
-                    {#                    <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}">New Post</a>#}
-                    <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Conta</a>
-                    <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Sair</a>
-                {% else %}
-                    <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Entrar</a>
-                    <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Registar</a>
-                {% endif %}
+                        <li class="nav-item text-center mx-2 mx-lg-1">
+                            <a class="nav-link" href="{{ url_for('users.account') }}">
+                                <div>
+                                    <i class="fa-solid fa-circle-user fa-lg mb-1"></i>
+                                </div>
+                                Conta
+                            </a>
+                        </li>
+                        <li class="nav-item text-center mx-2 mx-lg-1">
+                            <a class="nav-link" href="{{ url_for('users.logout') }}">
+                                <div>
+                                    <i class="fa-solid fa-arrow-right-to-bracket fa-rotate-180 fa-lg mb-1"></i>
+                                </div>
+                                Sair
+                            </a>
+                        </li>
+
+                    {% else %}
+
+
+
+                        <li class="nav-item text-center mx-2 mx-lg-1">
+                            <a class="nav-link" href="{{ url_for('users.login') }}">
+                                <div>
+                                    <i class="fa-solid fa-arrow-right-to-bracket fa-lg mb-1"></i>
+                                </div>
+                                Entrar
+                            </a>
+                        </li>
+                        <li class="nav-item text-center mx-2 mx-lg-1">
+                            <a class="nav-link" href="{{ url_for('users.register') }}">
+                                <div>
+                                    <i class="fa-solid fa-upload fa-lg "></i></div>
+                                Registar
+                            </a>
+                        </li>
+
+                    {% endif %}
+                </ul>
+                <!-- Search form -->
+                <form class="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0">
+                    <input type="search" class="form-control" placeholder="Procurar item" aria-label="Search"/>
+                    <button class="btn btn-primary" type="button" data-mdb-ripple-color="dark">
+                        Procurar
+                    </button>
+                </form>
+
             </div>
-
-
+            <!-- Collapsible wrapper -->
         </div>
+        <!-- Container wrapper -->
     </nav>
 
 
-    {#    <nav class="navbar navbar-expand-md navbar-primary bg-dark">#}
-    {#        <div class="container">#}
-    {#            <a class="navbar-brand mr-4" href="/">Barralegal</a>#}
-    {#            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"#}
-    {#                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">#}
-    {#                <span class="navbar-toggler-icon"></span>#}
-    {#            </button>#}
-    {#            <div class="collapse navbar-collapse" id="navbarToggle">#}
-    {#                <div class="navbar-nav mr-auto">#}
-    {#                    <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Início</a>#}
-    {#                    <a class="nav-item nav-link" href="{{ url_for('main.about') }}">Sobre</a>#}
-    {#                </div>#}
-    {#                <div class="dropdown">#}
-    {#                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"#}
-    {#                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-    {#                        Regulamentação barragens#}
-    {#                    </button>#}
-    {#                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">#}
-    {#                        <h6 class="dropdown-header">Regulamentos (2018)</h6>#}
-    {##}
-    {#                        <a class="dropdown-item" href="rsb">RSB</a>#}
-    {#                        <a class="dropdown-item" href="rpb">RPB</a>#}
-    {#                        <h6 class="dropdown-header">Documentos Técnicos de Apoio <br> (APA, 2019)</h6>#}
-    {##}
-    {#                        <a class="dropdown-item" href="dtaI">Parte I (projeto)</a>#}
-    {#                        <a class="dropdown-item" href="dtaII">Parte II (construção)</a>#}
-    {#                        <a class="dropdown-item" href="dtaIII">Parte III (exploração)</a>#}
-    {#                        <a class="dropdown-item" href="dtaIV">DTA IV (observação)</a>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {##}
-    {##}
-    {#                <!-- Navbar Right Side -->#}
-    {#                <div class="navbar-nav">#}
-    {#                    {% if current_user.is_authenticated %}#}
-    {#                        <a class="nav-item nav-link" href="{{ url_for('posts.new_post') }}">New Post</a>#}
-    {#                        <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Conta</a>#}
-    {#                        <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Sair</a>#}
-    {#                    {% else %}#}
-    {#                        <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Entrar</a>#}
-    {#                        <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Registar</a>#}
-    {#                    {% endif %}#}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </nav>#}
-
-
 </header>
-<main role="main" class="container">
+<main role="main" class="container pt-4">
     <div class="row">
 
         {#lado esquerdo#}
@@ -146,7 +174,7 @@
         </div>
 
         {#centro#}
-        <div class="col-lg-7">
+        <div class="col-lg-9">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
@@ -160,7 +188,7 @@
 
         </div>
         {#    lado direito#}
-        <div class="col-lg-2">
+        <div class="col-lg-0">
             {% block col_drt %}{% endblock %}
 
         </div>
@@ -170,16 +198,18 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+
 <!-- Jstree -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+
+
+<!-- Ricardos -->
 <script src="{{ url_for('static', filename='ricardo_jstree.js') }}"></script>
 
 

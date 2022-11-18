@@ -1,155 +1,174 @@
 $(document).ready(function () {
 
+    $.getJSON('./static/regulamentos.json', function (regulamentos) {
 
-    $("#jstree").jstree({
-        "core": {
-            "animation": 400,
-            'strings': {
-                'Loading ...': 'Espere ...'
-            },
-            "themes": {
-                "icons": false,
-                "expand_selected_onload": true,
-                "responsive": true
-            },
-            "data":
-                {"url": "./static/regulamentos.json",},
+            $("#jstree").jstree({
+                "core": {
+                    "animation": 400,
+                    'strings': {
+                        'Loading ...': 'Espere ...'
+                    },
+                    "themes": {
+                        "icons": false,
+                        "expand_selected_onload": true,
+                        "responsive": true
+                    },
+                    "data": regulamentos.children,
+                    // {"url": "./static/regulamentos.json",},
 
-        },
-        "plugins": ["checkbox", "search", "wholerow"],
-        "checkbox": {
-            "keep_selected_style": false
-        },
-        "search": {
-            "case_sensitive": false,
-            "show_only_matches": false
-        }
-    })
+                },
+                "plugins": ["checkbox", "search", "wholerow"],
+                "checkbox": {
+                    "keep_selected_style": false
+                },
+                "search": {
+                    "case_sensitive": false,
+                    "show_only_matches": false
+                }
+            })
 
-    // sempre que mudar a tree
-    $('#jstree').on("changed.jstree", function (e, data) {
-            $('#regs').empty();
-            let selecionado = data.selected;
-            console.log(selecionado);
-            let is_selected = function (id) {
-                return selecionado.map(x => x.includes(id)).includes(true)
-            };
+            // sempre que mudar a tree
+            $('#jstree').on("changed.jstree", function (e, data) {
+                $('#root').empty();
 
-            $.getJSON('./static/regulamentos.json', function (regs) {
-                $.map(regs, function (reg) {
-                        if (is_selected(reg.id)) {
-
-                            $('div#regs').append('<div id=' + reg.id + '></div>');
-                            $('div#' + reg.id).append("<h4>" + reg.name + "</h4>").addClass("accordion");
-
-
-                            if (reg.children) {
-                                $.map(reg.children, function (level1) {
-                                    if (is_selected(level1.id)) {
-                                        $('div#' + reg.id).append('<div id= ' + level1.id + '></div>');
-                                        $('div#' + level1.id).append(content_type(level1)[0]).addClass(content_type(level1)[1]);
-                                        if (level1.children) {
-                                            $.map(level1.children, function (level2) {
-                                                if (is_selected(level2.id)) {
-                                                    $('div#' + level1.id).append('<div id= ' + level2.id + '></div>');
-                                                    $('div#' + level2.id).append(content_type(level2)[0]);
-                                                    if (level2.children) {
-                                                        $.map(level2.children, function (level3) {
-                                                            if (is_selected(level3.id)) {
-                                                                $('div#' + level2.id).append('<div id= ' + level3.id + '></div>');
-                                                                $('div#' + level3.id).append(content_type(level3)[0]);
-                                                                if (level3.children) {
-                                                                    $.map(level3.children, function (level4) {
-                                                                        if (is_selected(level4.id)) {
-                                                                            $('div#' + level3.id).append('<div id= ' + level4.id + '></div>');
-                                                                            $('div#' + level4.id).append(content_type(level4)[0]);
-                                                                            if (level4.children) {
-                                                                                $.map(level4.children, function (level5) {
-                                                                                    if (is_selected(level5.id)) {
-
-                                                                                        $('div#' + level4.id).append('<div id= ' + level5.id + '></div>');
-                                                                                        $('div#' + level5.id).append(content_type(level5)[0]);
-                                                                                        if (level5.children) {
-                                                                                            $.map(level5.children, function (level6) {
-                                                                                                if (is_selected(level6.id)) {
-                                                                                                    $('div#' + level5.id).append('<div id= ' + level6.id + '></div>');
-                                                                                                    $('div#' + level6.id).append(content_type(level6)[0]);
-                                                                                                }
-                                                                                            });
-                                                                                        }
-                                                                                    }
-                                                                                });
-                                                                            }
-                                                                        }
-                                                                    });
-                                                                }
-                                                            }
-                                                        });
-                                                    }
-                                                }
-                                            });
-                                        }
-                                    }
-                                });
-                            }
-                        }
-                    }
-                );
+                iterate_json(regulamentos, data.selected)
 
             });
 
 
+            // hover
+            $('#jstree').bind("hover_node.jstree", function (e, data) {
+                $("#jstree").attr('title', data.node.original.title);
+            });
+
+
+            // search in tree
+            $(".search-input").keyup(function () {
+                var searchString = $(this).val();
+                $('#jstree').jstree('search', searchString);
+            });
+
+            // função recursiva
+            // iterar o json e chama a função content_type()
+            function iterate_json(obj,data) {
+                obj.children.forEach((item, index) => {
+                    {
+                        if (item.children && item.children != []) {
+                            content_type(item,data);
+                            iterate_json(item,data);
+                        } else {
+                            return
+                        }
+                        ;
+                    }
+                });
+            }
+
+            // função para ver se um dado obj foi selecionado na tree
+            let is_selected = function (id, data) {
+                return data.map(x => x.includes(id)).includes(true)
+            };
+
+            // descobrir de que tipo é o objeto e cria o html com as respetivas funções
+            let content_type = function (obj, dataSelected) {
+                if (is_selected(obj.id, dataSelected)) {
+                    if (["rsb", "rpb", "dta1", "dta2", "dta3", "dta4"].includes(obj.id)) {
+                        // return "reg"
+                        return accordion_type(obj)
+                    } else if (obj.name.slice(0, 3) === 'Cap' || obj.name.slice(0, 5) === 'Anexo') {
+                        return accordion_type(obj);
+                    } else if (obj.name.slice(0, 3) === 'Sec') {
+                        return accordion_type(obj);
+                    } else if (obj.name.slice(0, 3) === 'Sub') {
+                        return accordion_type(obj);
+                    } else if (obj.name.slice(0, 3) === 'Art') {
+                        return artGroup_type(obj);
+                    } else if (obj.name.slice(0, 5) === 'ponto') {
+                        return ponto_type(obj);
+                    } else if (obj.name.slice(0, 6) === 'alínea') {
+                        return aln_type(obj);
+                    } else {
+                        return 'Verificar o  json no ramo com id:' + obj.id;
+                    }
+                }
+            }
+            // cria o html (accordion) para um dado obj (Regulamento, Capítulo, Anexo, Seção ou subseção)
+            // recebe um objeto (1 children pex 1 regulamento) do Json e cria o html
+            let accordion_type = function (obj) {
+                let id_parent = "";
+                if (obj.id.lastIndexOf("-") == -1) { // se não houver "-" então estamos na root da árvore
+                    id_parent = "root"// no html tem de estar um div com este id
+                } else {
+                    //descobrir o id do parent (retira do id o que está à frente do último "-")
+                    id_parent = obj.id.substring(0, obj.id.lastIndexOf("-"))
+                }
+                $('div#' + id_parent).append('<div id=acc-item_' + obj.id + '></div>').addClass("accordion");
+                $('div#acc-item_' + obj.id).addClass("accordion-item");
+                $("<h2></h2>").addClass("accordion-header").attr('id', 'acc-header_' + obj.id).appendTo($('div#acc-item_' + obj.id))
+                let add_title = ""
+                if (obj.title != "") {
+                    add_title = " — " + obj.title
+                }
+                $("<button></button>").addClass("accordion-button").attr({
+                    'type': 'button',
+                    'data-bs-toggle': 'collapse',
+                    'data-bs-target': '#acc-collapse_' + obj.id
+
+                }).appendTo($('h2#acc-header_' + obj.id)).text(obj.name + add_title)
+                //
+                $('<div></div>').addClass("accordion-collapse collapse show").attr('id', 'acc-collapse_' + obj.id).appendTo($('div#acc-item_' + obj.id))
+                $('<div></div>').addClass("accordion-body").attr('id', 'acc-body_' + obj.id).appendTo($('div#acc-collapse_' + obj.id))
+                $('<div></div>').attr('id', obj.id).appendTo($('div#acc-body_' + obj.id)) // cria um div no fim para receber os children
+            }
+
+
+            // cria o html (list-group) para um dado obj (Artigo)
+            // recebe um objeto (1 children ou seja 1 artigo) do Json e cria o html
+            let artGroup_type = function (obj) {
+                //descobrir o id do parent (retira do id o que está à frente do último "-")
+                let id_parent = obj.id.substring(0, obj.id.lastIndexOf("-"));
+                let content = "";
+
+                $('div#' + id_parent).addClass("list-group").append('<a id=lstgr-item_' + obj.id + '></a>');
+                $('a#lstgr-item_' + obj.id).addClass("list-group-item list-group-item-action");
+
+                $('<div></div>').attr('id', 'lstgr-flex_' + obj.id).appendTo($('a#lstgr-item_' + obj.id))
+                $('div#lstgr-flex_' + obj.id).addClass("ld-flex mb-1 justify-content-between");
+
+                $("<h5></h5>").addClass("mb-1").attr('id', 'lstgr-header_' + obj.id).appendTo($('div#lstgr-flex_' + obj.id))
+                $('h5#lstgr-header_' + obj.id).text(obj.name + " " + obj.title)
+                if (obj.content != "") {
+                    $("<p></p>").addClass("mb-1").attr('id', 'p_' + obj.id).appendTo($('a#lstgr-item_' + obj.id))
+                    $('#p_' + obj.id).text(obj.content)
+                }
+                $('<div></div>').attr('id', obj.id).appendTo($('a#lstgr-item_' + obj.id)) // cria um div no fim para receber os children
+
+            }
+
+
+            // cria o html (list-group) para um dado obj (ponto)
+            // recebe um objeto (1 children ou seja 1 ponto) do Json e cria o html
+            let ponto_type = function (obj) {
+                //descobrir o id do parent (retira do id o que está à frente do último "-")
+                let id_parent = obj.id.substring(0, obj.id.lastIndexOf("-"));
+
+                $('div#' + id_parent).addClass("list-group").append('<a id=lstgr-item_' + obj.id + '></a>');
+                $('a#lstgr-item_' + obj.id).addClass("list-group-item list-group-item-action");
+                $("a#lstgr-item_" + obj.id).text(obj.text + " — " + obj.content)
+                $('<div></div>').attr('id', obj.id).appendTo($('a#lstgr-item_' + obj.id)) // cria um div no fim para receber os children
+            }
+            // cria o html (list-group) para um dado obj (alinea)
+            // recebe um objeto (1 children ou seja 1 alinea) do Json e cria o html
+            let aln_type = function (obj) {
+                //descobrir o id do parent (retira do id o que está à frente do último "-")
+                let id_parent = obj.id.substring(0, obj.id.lastIndexOf("-"));
+                $('div#' + id_parent).addClass("list-group").append('<a id=lstgr-item_' + obj.id + '></a>');
+                $('a#lstgr-item_' + obj.id).addClass("list-group-item list-group-item-action");
+                $("<p></p>").addClass("mb-1").attr('id', 'p_' + obj.id).appendTo($('a#lstgr-item_' + obj.id))
+                $('#p_' + obj.id).text(obj.text + ") " + obj.content)
+
+            }
         }
     )
-
-
-    // hover
-    $('#jstree').bind("hover_node.jstree", function (e, data) {
-        $("#jstree").attr('title', data.node.original.title);
-    });
-
-
-    // search in tree
-    $(".search-input").keyup(function () {
-        var searchString = $(this).val();
-        $('#jstree').jstree('search', searchString);
-    });
-
-
-    let content_type = function (level) {
-
-        let classe = "";
-        let content = "";
-
-        if (level.name.slice(0, 3) === 'Cap' || level.name.slice(0, 5) === 'Anexo') {
-            classe = "accordion";
-            content = '<h4>' + level.name + '</h4>' + '<h4>' + level.title + '</h4>';
-            return [content, classe];
-        } else if (level.name.slice(0, 3) === 'Sec') {
-            content = '<h5>' + level.name + '</h5>' + '<h5>' + level.title + '</h5>';
-            return [content, "Sec"];
-        } else if (level.name.slice(0, 3) === 'Sub') {
-            content = '<h6>' + level.name + '</h6>' + '<h6>' + level.title + '</h6>'
-            return [content, "Sub"];
-        } else if (level.name.slice(0, 3) === 'Art') {
-            content =
-                '<dt>' + level.name + '</dt>' + '<dt>' + level.title + '</dt>';
-            if (level.content) {
-                return [content + '<dd>' + level.content + '</dd>', "Art"];
-            } else {
-                return [content, "Art"];
-            }
-        } else if (level.name.slice(0, 5) === 'ponto') {
-            content = '<dd>' + level.text + ' — ' + level.content + '</dd>';
-            return [content, "ponto"];
-        } else if (level.name.slice(0, 6) === 'alínea') {
-            content = '<dd>' + level.text + ') ' + level.content + '</dd>';
-            return [content, "alínea"];
-
-        } else {
-            return '???';
-        }
-    }
-
-
 })
+
