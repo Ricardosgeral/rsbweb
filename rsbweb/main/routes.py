@@ -1,6 +1,5 @@
 from flask import render_template, request, Blueprint
-from rsbweb.models import Post, RSB2018, RPB2018, DTA_PI_2019, DTA_PII_2019, DTA_PIII_2019, DTA_PIV_2019
-from .regulamentos import regs
+from rsbweb.models import Post
 
 main = Blueprint('main', __name__)
 
@@ -21,53 +20,34 @@ def reg_regulamentos():
 
 @main.route("/rsb")
 def reg_rsb():
-    rsb = regs[0]
-    return render_template('rsb.html', rsb=rsb)
+    return render_template('rsb.html')
 
 
 @main.route("/rpb")
 def reg_rpb():
-    rpb = regs[1]
-    return render_template('rpb.html', rpb=rpb)
+    return render_template('rpb.html')
 
 
 @main.route("/dtaI")
 def reg_dtaI():
-    dtaI = regs[2]
-    return render_template('dtaI.html', dtaI=dtaI)
+    return render_template('dtaI.html')
 
 
 @main.route("/dtaII")
 def reg_dtaII():
-    dtaII = regs[3]
-    return render_template('dtaII.html', dtaII=dtaII)
+    return render_template('dtaII.html')
 
 
 @main.route("/dtaIII")
 def reg_dtaIII():
-    dtaIII = regs[4]
-    return render_template('dtaIII.html', dtaIII=dtaIII)
+    return render_template('dtaIII.html')
 
 
 @main.route("/dtaIV")
 def reg_dtaIV():
-    dtaIV = regs[5]
-    return render_template('dtaIV.html', dtaIV=dtaIV)
-
-
-
+    return render_template('dtaIV.html')
 
 
 @main.route("/about")
 def about():
-    rsb = RSB2018.query.all()
-    rpb = RPB2018.query.all()
-    dtaI = DTA_PI_2019.query.all()
-    dtaII = DTA_PII_2019.query.all()
-    dtaIII = DTA_PIII_2019.query.all()
-    dtaIV = DTA_PIV_2019.query.all()
-
-    return render_template('about.html',
-                           rsb=rsb, rpb=rpb,
-                           dtaI=dtaI, dtaII=dtaII,
-                           dtaIII=dtaIII, dtaIV=dtaIV)
+    return render_template('about.html')

@@ -1,6 +1,19 @@
 {% extends "layout.html" %}
-{% set doc = dtaIV %}}
-{% set title = 'DTA_IV'%}
+
+{% set title="DTA(PIV)" %}
+
+{% block col_esq %}
+    <input id="search-input" class="search-input form-control mr-sm-2" type="search"
+           placeholder="Procurar na lista" aria-label="Procurar"/>
+    <br/>
+    <div id="jstree"></div>
+{% endblock %}
+
 {% block col_central %}
-    {% include 'layout_reg_old1.html' %}
+    {#conteudo que vem dos #}
+    <div id="root"></div>
+{% endblock %}
+
+
+{% block col_drt %}
 {% endblock %}
