@@ -4,6 +4,7 @@ $(document).ready(function () {
 
                 $("#jstree").jstree({
                     "core": {
+                        "expand_selected_onload": false, // importante para manter os nós fechado após seleção
                         "animation": 400,
                         'strings': {
                             'Loading ...': 'Espere ...'
@@ -30,9 +31,7 @@ $(document).ready(function () {
                 // sempre que mudar a tree
                 $('#jstree').on("changed.jstree", function (e, data) {
                     $('#root').empty();
-
                     iterate_json(regulamentos, data.selected)
-
                 });
 
 
@@ -45,7 +44,6 @@ $(document).ready(function () {
                 $('#jstree').on('loaded.jstree', function () {
                     if (document.title == "Barragens - Regulamentos") {
                         $('#jstree').jstree("check_all").bind();
-
                     } else if (document.title == "Barragens - RSB") {
                         $('#jstree').jstree('select_node', 'rsb');
                     } else if (document.title == "Barragens - RPB") {
@@ -84,6 +82,17 @@ $(document).ready(function () {
                     });
                 }
 
+                // fechar os nós após selecionar
+                $("#jstree").bind("open_node.jstree", function (event, data) {
+                    var obj = data.instance.get_node(data.node, true);
+                    console.log(obj)
+                    if (obj) {
+                        obj.siblings('.jstree-open').map(function () {
+                            data.instance.close_node(this, 1);
+                        });
+                    }
+                });
+
                 // função para ver se um dado obj foi selecionado na tree
                 let is_selected = function (id, data) {
                     return data.map(x => x.includes(id)).includes(true)
@@ -93,16 +102,22 @@ $(document).ready(function () {
                 let content_type = function (obj, index, dataSelected) {
                     if (is_selected(obj.id, dataSelected)) {
                         if (["rsb", "rpb", "dta1", "dta2", "dta3", "dta4"].includes(obj.id)) {
-                            return accordion_type(obj)
+                            const cor_tab = "#0047AB"
+                            return accordion_type(obj, cor_tab)
                         } else if (obj.name.slice(0, 3) === 'Cap' || obj.name.slice(0, 5) === 'Anexo') {
-                            return accordion_type(obj);
+                            const cor_tab = "#0096FF"
+
+                            return accordion_type(obj, cor_tab);
                         } else if (obj.name.slice(0, 3) === 'Sec') {
-                            return accordion_type(obj);
+                            const cor_tab = "#6495ED"
+
+                            return accordion_type(obj, cor_tab);
                         } else if (obj.name.slice(0, 3) === 'Sub') {
+                            const cor_tab = "#89CFF0"
+
                             return accordion_type(obj);
                         } else if (obj.name.slice(0, 3) === 'Art') {
                             return artGroup_type(obj, index);
-
                         } else if (obj.name.slice(0, 5) === 'ponto') {
                             return ponto_type(obj);
                         } else if (obj.name.slice(0, 6) === 'alínea') {
@@ -114,7 +129,7 @@ $(document).ready(function () {
                 }
                 // cria o html (accordion) para um dado obj (Regulamento, Capítulo, Anexo, Seção ou subseção)
                 // recebe um objeto (1 children pex 1 regulamento) do Json e cria o html
-                let accordion_type = function (obj) {
+                let accordion_type = function (obj, color) {
                     let id_parent = "";
                     if (obj.id.lastIndexOf("-") == -1) { // se não houver "-" então estamos na root da árvore
                         id_parent = "root"// no html tem de estar um div com este id
@@ -124,13 +139,14 @@ $(document).ready(function () {
                     }
                     $('div#' + id_parent).append('<div id=acc-item_' + obj.id + '></div>').addClass("accordion");
                     $('div#acc-item_' + obj.id).addClass("accordion-item py-0");
-                    $("<h2></h2>").addClass("accordion-header").attr('id', 'acc-header_' + obj.id).appendTo($('div#acc-item_' + obj.id))
+                    $("<h2></h2>").addClass("accordion-header py-0 my-0").attr('id', 'acc-header_' + obj.id).appendTo($('div#acc-item_' + obj.id))
                     let add_title = ""
                     if (obj.title != "") {
                         add_title = " — " + obj.title
                     }
-                    $("<button></button>").addClass("accordion-button").attr({
+                    $("<button style='bzckgrou'></button>").addClass("accordion-button").attr({
                         'type': 'button',
+                        'style': 'background-color:' + color + '; color:white; font-weight: bold',
                         'data-bs-toggle': 'collapse',
                         'data-bs-target': '#acc-collapse_' + obj.id
 
@@ -149,15 +165,14 @@ $(document).ready(function () {
                     let id_parent = obj.id.substring(0, obj.id.lastIndexOf("-"));
                     let content = "";
 
-
                     if (index != 0) {  //se for o primeiro child (não coloca o divisor horizontal)
                         $('div#' + id_parent).append('<hr>');
                     }
                     $('div#' + id_parent).addClass("list-group").append('<a id=lstgr-item_' + obj.id + '></a>');
-                    $('a#lstgr-item_' + obj.id).addClass("list-group-item list-group-item-action border-0 py-0");
+                    $('a#lstgr-item_' + obj.id).addClass("list-group-item list-group-item-action border-0 my-0 py-0");
 
                     $('<div></div>').attr('id', 'lstgr-flex_' + obj.id).appendTo($('a#lstgr-item_' + obj.id))
-                    $('div#lstgr-flex_' + obj.id).addClass("ld-flex justify-content-between");
+                    $('div#lstgr-flex_' + obj.id).addClass("ld-flex justify-content-between py-0 my-0");
 
                     $("<h6></h6>").attr('id', 'lstgr-header_' + obj.id).appendTo($('div#lstgr-flex_' + obj.id))
                     $('h6#lstgr-header_' + obj.id).text(obj.name + " " + obj.title)
@@ -179,15 +194,20 @@ $(document).ready(function () {
                 let ponto_type = function (obj) {
                     //descobrir o id do parent (retira do id o que está à frente do último "-")
                     let id_parent = obj.id.substring(0, obj.id.lastIndexOf("-"));
-                    $('div#' + id_parent).addClass("list-group").append('<a id=lstgr-item_' + obj.id + '></a>');
-                    $('a#lstgr-item_' + obj.id).addClass("list-group-item list-group-item-actio border-0 py-1");
+
+                    $('div#' + id_parent).addClass("list-group").append('<div id=div-item_' + obj.id + '></div>');
+                    $('#div-item_' + obj.id).addClass("py-0");
+
+                    $('#div-item_' + obj.id).append('<a id=lstgr-item_' + obj.id + '></a>');
+                    $('a#lstgr-item_' + obj.id).addClass("list-group-item list-group-item-action border-0");
+
                     $("a#lstgr-item_" + obj.id).text(obj.text + " — " + obj.content)
                     $('<div></div>').attr('id', obj.id).appendTo($('a#lstgr-item_' + obj.id)) // cria um div no fim para receber os children
                     //formatação
-                    // document.getElementById('lstgr-item_' + obj.id).style.borderLeft = "0.11rem solid #FF8A33";
-                    // document.getElementById('lstgr-item_' + obj.id).style.borderRight = "0rem";
-                    // document.getElementById('lstgr-item_' + obj.id).style.borderTop = "0rem";
-                    // document.getElementById('lstgr-item_' + obj.id).style.borderbottom = "0rem";
+                    document.getElementById('div-item_' + obj.id).style.borderLeft = "0.15rem solid #FF5733";
+                    document.getElementById('div-item_' + obj.id).style.borderRight = "0rem";
+                    document.getElementById('div-item_' + obj.id).style.borderTop = "0rem";
+                    document.getElementById('div-item_' + obj.id).style.borderbottom = "0rem";
                 }
                 // cria o html (list-group) para um dado obj (alinea)
                 // recebe um objeto (1 children ou seja 1 alinea) do Json e cria o html
