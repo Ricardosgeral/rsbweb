@@ -85,7 +85,6 @@ $(document).ready(function () {
                 // fechar os nós após selecionar
                 $("#jstree").bind("open_node.jstree", function (event, data) {
                     var obj = data.instance.get_node(data.node, true);
-                    console.log(obj)
                     if (obj) {
                         obj.siblings('.jstree-open').map(function () {
                             data.instance.close_node(this, 1);
@@ -102,20 +101,17 @@ $(document).ready(function () {
                 let content_type = function (obj, index, dataSelected) {
                     if (is_selected(obj.id, dataSelected)) {
                         if (["rsb", "rpb", "dta1", "dta2", "dta3", "dta4"].includes(obj.id)) {
-                            const cor_tab = "#0047AB"
+                            const cor_tab = "#0d6efd";
                             return accordion_type(obj, cor_tab)
                         } else if (obj.name.slice(0, 3) === 'Cap' || obj.name.slice(0, 5) === 'Anexo') {
-                            const cor_tab = "#0096FF"
-
+                            const cor_tab = "#00a5e0";
                             return accordion_type(obj, cor_tab);
-                        } else if (obj.name.slice(0, 3) === 'Sec') {
-                            const cor_tab = "#6495ED"
-
+                        } else if (obj.text.slice(0, 3) === 'Sec') {
+                            const cor_tab = "#7f99ef";
                             return accordion_type(obj, cor_tab);
-                        } else if (obj.name.slice(0, 3) === 'Sub') {
-                            const cor_tab = "#89CFF0"
-
-                            return accordion_type(obj);
+                        } else if (obj.text.slice(0, 3) == 'Sub') {
+                            const cor_tab = "#ef9cda";
+                            return accordion_type(obj, cor_tab);
                         } else if (obj.name.slice(0, 3) === 'Art') {
                             return artGroup_type(obj, index);
                         } else if (obj.name.slice(0, 5) === 'ponto') {
@@ -144,9 +140,13 @@ $(document).ready(function () {
                     if (obj.title != "") {
                         add_title = " — " + obj.title
                     }
-                    $("<button style='bzckgrou'></button>").addClass("accordion-button").attr({
+                  let text_prop= color+ '; color:white; font-weight: bold'
+                    if (obj.text.slice(0, 3) == 'Sub') {
+                      text_prop= color + '; color:black'
+                    }
+                    $("<button></button>").addClass("accordion-button").attr({
                         'type': 'button',
-                        'style': 'background-color:' + color + '; color:white; font-weight: bold',
+                        'style': 'background-color:' + text_prop,
                         'data-bs-toggle': 'collapse',
                         'data-bs-target': '#acc-collapse_' + obj.id
 
