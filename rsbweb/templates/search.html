@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% set title="Pesquisa" %}
+
+{% block col_esq %}
+    <input id="search-input" class="search-input form-control mr-sm-2" type="search"
+           placeholder="Procura rápida" aria-label="Procurar"/>
+    <br/>
+    <div id="jstree"></div>
+{% endblock %}
+
+{% block col_central %}
+    {#conteudo que vem dos #}
+
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-8">
+
+                    <div class="input-group mb-3">
+                        <input id='search1' type="text" class="form-control" placeholder="Procurar"
+                               aria-label="" aria-describedby="basic-addon2">
+                        <div id='search_btn1' class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="col-sm-2">
+
+                </div>
+            </div>
+        </div>
+        <!-- Search form -->
+
+    </div>
+
+    <div id="root"></div>
+{% endblock %}
+
+
+{% block col_drt %}
+{% endblock %}

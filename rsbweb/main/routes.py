@@ -48,6 +48,12 @@ def reg_dtaIV():
     return render_template('dtaIV.html')
 
 
+@main.route("/search")
+@main.route("/search.html")
+
+def reg_search():
+    return render_template('search.html')
+
 @main.route("/about")
 def about():
     return render_template('about.html')

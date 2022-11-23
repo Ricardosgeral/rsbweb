@@ -2,6 +2,65 @@ $(document).ready(function () {
 
         $.getJSON('./static/regulamentos.json', function (regulamentos) {
 
+
+                // search json and filter it
+                function searchItens(searchText, regulamentos) {
+
+                    const regex = new RegExp(`${searchText}`, 'gi')
+                    let matches = []
+                    let filtered_results = []
+                    let results = iterate_json_search(regulamentos, regex, matches)
+                    filtered_results = reduceArray(results)
+                    return filtered_results
+
+                }
+
+                function iterate_json_search(obj, regex, matches) {
+                    obj.children.forEach(item => {
+                        if (item.children && item.children !== []) {
+
+                            // procurar no content
+                            if (item.content) {
+                                if (item.content.match(regex)) {
+                                    matches.push(item.id)
+                                }
+                            }
+                            //procurar no title
+                            if (item.title) {
+                                if (item.title.match(regex)) {
+                                    matches.push(item.id)
+                                }
+                            }
+                            iterate_json_search(item, regex, matches);
+                        }
+
+                    })
+                    return matches
+                }
+
+                // função para filtrar os elementos a mais (repetidos)
+                function reduceArray(array) {
+                    let toRemove = []
+                    let res_array = []
+                    for (let i = 0; i < array.length; i++) {
+                        let element0 = array[i];
+                        for (let j = 0; j < array.length; j++) {
+                            let element1 = array[j]
+                            if (element0 !== element1 && !toRemove.includes(element1)) {
+                                if (element0.includes(element1 + "-")) {
+                                    toRemove.push(element1)
+                                }
+                            }
+                        }
+                    }
+                    res_array = array.filter(function (el) {
+                        return !toRemove.includes(el)
+
+                    })
+                    return res_array
+                }
+
+
                 $("#jstree").jstree({
                     "core": {
                         "expand_selected_onload": false, // importante para manter os nós fechado após seleção
@@ -34,6 +93,36 @@ $(document).ready(function () {
                     iterate_json(regulamentos, data.selected)
                 });
 
+                // função de pesquisa
+                $("#search_btn").click(function () {
+                    window.location = "search?";
+                })
+
+                $("#search_btn1").click(function () {
+                    let pesquisar = $("#search1").val()
+                    if (pesquisar.length < 3 || pesquisar == "   ") {
+                        alert("Pesquisas só com 3 ou mais carateres")
+                    } else {
+                        let valoresfinais = searchItens(pesquisar, regulamentos)
+                        console.log(valoresfinais)
+                        if (valoresfinais.length != 0) {
+                            $('#root').empty();
+                            $("#root").append('<h6 id="search" class="p-2"></h6>')
+                            $("h6#search").text('Encontradas ' + valoresfinais.length + ' correspondências para "' + pesquisar + '"')
+
+                            $('#jstree').jstree().deselect_all(true)
+                            $('#jstree').jstree().select_node(valoresfinais, false);
+                            $('#jstree').jstree().select_node(valoresfinais[0], true);
+
+                        } else {
+                            $('#root').empty();
+                            $("#root").append('<h6 id="search" class="p-2"></h6>')
+                            $("h6#search").text('Não foram encontradas correspondências para "' + pesquisar + '"')
+                        }
+
+                    }
+                })
+
 
                 // hover
                 $('#jstree').bind("hover_node.jstree", function (e, data) {
@@ -41,26 +130,28 @@ $(document).ready(function () {
                 });
 
                 // selecionar nós por defeito
-                $('#jstree').on('loaded.jstree', function () {
-                    if (document.title == "Barragens - Regulamentos") {
-                        $('#jstree').jstree("check_all").bind();
-                    } else if (document.title == "Barragens - RSB") {
-                        $('#jstree').jstree('select_node', 'rsb');
-                    } else if (document.title == "Barragens - RPB") {
-                        $('#jstree').jstree('select_node', 'rpb');
-                    } else if (document.title == "Barragens - DTA(PI)") {
-                        $('#jstree').jstree('select_node', 'dta1');
-                    } else if (document.title == "Barragens - DTA(PII)") {
-                        $('#jstree').jstree('select_node', 'dta2');
-                    } else if (document.title == "Barragens - DTA(PIII)") {
-                        $('#jstree').jstree('select_node', 'dta3');
-                    } else if (document.title == "Barragens - DTA(PIV)") {
-                        $('#jstree').jstree('select_node', 'dta4');
-                    }
-                });
+                if (document.title != "Barragens - Pesquisa") {
 
+                    $('#jstree').on('loaded.jstree', function () {
+                        if (document.title == "Barragens - Regulamentos") {
+                            $('#jstree').jstree("check_all").bind();
+                        } else if (document.title == "Barragens - RSB") {
+                            $('#jstree').jstree('select_node', 'rsb');
+                        } else if (document.title == "Barragens - RPB") {
+                            $('#jstree').jstree('select_node', 'rpb');
+                        } else if (document.title == "Barragens - DTA(PI)") {
+                            $('#jstree').jstree('select_node', 'dta1');
+                        } else if (document.title == "Barragens - DTA(PII)") {
+                            $('#jstree').jstree('select_node', 'dta2');
+                        } else if (document.title == "Barragens - DTA(PIII)") {
+                            $('#jstree').jstree('select_node', 'dta3');
+                        } else if (document.title == "Barragens - DTA(PIV)") {
+                            $('#jstree').jstree('select_node', 'dta4');
+                        }
+                    });
+                }
 
-                // search in tree
+                // search in tree (left side search)
                 $(".search-input").keyup(function () {
                     var searchString = $(this).val();
                     $('#jstree').jstree('search', searchString);
@@ -82,15 +173,15 @@ $(document).ready(function () {
                     });
                 }
 
-                // fechar os nós após selecionar
-                $("#jstree").bind("open_node.jstree", function (event, data) {
-                    var obj = data.instance.get_node(data.node, true);
-                    if (obj) {
-                        obj.siblings('.jstree-open').map(function () {
-                            data.instance.close_node(this, 1);
-                        });
-                    }
-                });
+                // // fechar os nós após selecionar
+                // $("#jstree").bind("open_node.jstree", function (event, data) {
+                //     var obj = data.instance.get_node(data.node, true);
+                //     if (obj) {
+                //         obj.siblings('.jstree-open').map(function () {
+                //             data.instance.close_node(this, 1);
+                //         });
+                //     }
+                // });
 
                 // função para ver se um dado obj foi selecionado na tree
                 let is_selected = function (id, data) {
@@ -140,9 +231,9 @@ $(document).ready(function () {
                     if (obj.title != "") {
                         add_title = " — " + obj.title
                     }
-                  let text_prop= color+ '; color:white; font-weight: bold'
+                    let text_prop = color + '; color:white; font-weight: bold'
                     if (obj.text.slice(0, 3) == 'Sub') {
-                      text_prop= color + '; color:black'
+                        text_prop = color + '; color:black'
                     }
                     $("<button></button>").addClass("accordion-button").attr({
                         'type': 'button',

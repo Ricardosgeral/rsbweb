@@ -152,10 +152,16 @@
                     {% endif %}
                 </ul>
                 <!-- Search form -->
+
+
+
+
+
                 <form class="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0">
-                    <input type="search" class="form-control" placeholder="Procurar item" aria-label="Search"/>
-                    <button class="btn btn-primary" type="button" data-mdb-ripple-color="dark">
-                        Procurar
+{#                    <input id='search' type="search" class="form-control" placeholder="Procurar item"#}
+{#                           aria-label="Search"/>#}
+                    <button id='search_btn' class="btn btn-primary" type="button" data-mdb-ripple-color="dark">
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
 
@@ -213,6 +219,44 @@
 
 <!-- Ricardos -->
 <script src="{{ url_for('static', filename='ricardo_jstree.js') }}"></script>
+<script>
+
+
+    const search = document.getElementById('search');
+    const search_btn = document.getElementById('search_btn')
+    const matchList = document.getElementById('match-list');
+
+
+    function iterate_json_search(obj, regex, matches) {
+        obj.children.forEach(item => {
+            if (item.children && item.children !== []) {
+                // procurar no nome
+                if (item.name) {
+                    if (item.name.match(regex)) {
+                        matches.push(item.id)
+                    }
+                }
+                // procurar no content
+                if (item.content) {
+                    if (item.content.match(regex)) {
+                        matches.push(item.id)
+                    }
+                }
+                //procurar no title
+                if (item.title) {
+                    if (item.title.match(regex)) {
+                        matches.push(item.id)
+                    }
+                }
+                iterate_json(item, regex, matches);
+            }
+
+        })
+        return matches
+    }
+
+
+</script>
 
 
 </body>
