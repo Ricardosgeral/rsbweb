@@ -2,36 +2,93 @@ $(document).ready(function () {
 
         $.getJSON('./static/regulamentos.json', function (regulamentos) {
 
+                //criar a árvore
+                $("#jstree").jstree({
+                    "core": {
+                        "expand_selected_onload": false, // importante para manter os nós fechado após seleção
+                        "animation": 400,
+                        'strings': {
+                            'Loading ...': 'Espere ...'
+                        },
+                        "themes": {
+                            "icons": false,
+                            "expand_selected_onload": true,
+                            "responsive": true
+                        },
+                        "data": regulamentos.children,
+                        // {"url": "./static/regulamentos.json",},
+
+                    },
+                    "plugins": ["checkbox", "search", "wholerow"],
+                    "checkbox": {
+                        "keep_selected_style": false
+                    },
+                    "search": {
+                        "case_sensitive": false,
+                        "show_only_matches": false
+                    }
+                })
 
                 // search json and filter it
-                function searchItens(searchText, regulamentos) {
+                function searchItens(searchText, regulamentos, rd_search_and) {
 
-                    const regex = new RegExp(`${searchText}`, 'gi')
                     let matches = []
                     let filtered_results = []
-                    let results = iterate_json_search(regulamentos, regex, matches)
-                    filtered_results = reduceArray(results)
-                    return filtered_results
 
+                    searchText = searchText.split(",") // transformar num array
+                    searchText = searchText.map(x => x.trim()) // tirar espaços no início e fim dos strings
+
+                    let results = iterate_json_search(regulamentos, searchText, rd_search_and, matches)
+                    filtered_results = reduceArray(results)
+
+                    return filtered_results
                 }
 
-                function iterate_json_search(obj, regex, matches) {
+                function iterate_json_search(obj, searchText, rd_search_and, matches) {
                     obj.children.forEach(item => {
                         if (item.children && item.children !== []) {
-
-                            // procurar no content
-                            if (item.content) {
-                                if (item.content.match(regex)) {
-                                    matches.push(item.id)
+                            if (rd_search_and) { // pesquisar com "e" ou seja com o "every"
+                                // procurar no content
+                                if (item.content) {
+                                    var isFound = searchText.every(function (word) {
+                                        return item.content.indexOf(word) !== -1;
+                                    });
+                                    if (isFound) {
+                                        matches.push(item.id)
+                                    }
                                 }
-                            }
-                            //procurar no title
-                            if (item.title) {
-                                if (item.title.match(regex)) {
-                                    matches.push(item.id)
+                                //procurar no title
+                                if (item.title) {
+                                    var isFound = searchText.every(function (word) {
+                                        return item.title.indexOf(word) !== -1;
+                                    });
+                                    if (isFound) {
+                                        matches.push(item.id)
+                                    }
                                 }
+                                iterate_json_search(item, searchText, rd_search_and, matches);
+                            } else { //pesquisa com "ou" ou seja com "some"
+                                // procurar no content
+                                if (item.content) {
+                                    var isFound = searchText.some(function (word) {
+                                        return item.content.indexOf(word) !== -1;
+                                    });
+                                    if (isFound) {
+                                        matches.push(item.id)
+                                    }
+                                }
+                                //procurar no title
+                                if (item.title) {
+                                    console.log(isFound)
+                                    var isFound = searchText.some(function (word) {
+                                        return item.title.indexOf(word) !== -1;
+                                    });
+                                    if (isFound) {
+                                        matches.push(item.id)
+                                    }
+                                }
+                                iterate_json_search(item, searchText, rd_search_and, matches);
                             }
-                            iterate_json_search(item, regex, matches);
                         }
 
                     })
@@ -60,69 +117,39 @@ $(document).ready(function () {
                     return res_array
                 }
 
-
-                $("#jstree").jstree({
-                    "core": {
-                        "expand_selected_onload": false, // importante para manter os nós fechado após seleção
-                        "animation": 400,
-                        'strings': {
-                            'Loading ...': 'Espere ...'
-                        },
-                        "themes": {
-                            "icons": false,
-                            "expand_selected_onload": true,
-                            "responsive": true
-                        },
-                        "data": regulamentos.children,
-                        // {"url": "./static/regulamentos.json",},
-
-                    },
-                    "plugins": ["checkbox", "search", "wholerow"],
-                    "checkbox": {
-                        "keep_selected_style": false
-                    },
-                    "search": {
-                        "case_sensitive": false,
-                        "show_only_matches": false
-                    }
-                })
-
                 // sempre que mudar a tree
                 $('#jstree').on("changed.jstree", function (e, data) {
                     $('#root').empty();
                     iterate_json(regulamentos, data.selected)
                 });
 
+                $('#selectAll').click(function () {
+                        $('#jstree').jstree("check_all").bind();
+                        $("#alert_search").hide()
+
+                    })
+
+                $('#deselectAll').click(function () {
+                        $('#jstree').jstree("uncheck_all").bind();
+                        $("#alert_search").hide()
+                    })
+
                 // função de pesquisa
                 $("#search_btn").click(function () {
-                    window.location = "search?";
+
+                    let pesquisar = $("#search").val()
+                    let rd_search_and = $("#rd_search_and").is(':checked');
+
+                    let valoresfinais = searchItens(pesquisar, regulamentos, rd_search_and)
+
+                    let searchArray = []
+                    searchArray.push(pesquisar.split(",").length) // numero de palavras pesquisadas
+                    searchArray.push(pesquisar) // palavras pesquisadas
+                    searchArray.push(valoresfinais) // valores resultantes da pesquisa
+                    sessionStorage.clear();
+                    sessionStorage.setItem('searchArray', searchArray);  //definir variável global
+                    window.location = "search?" + rd_search_and + JSON.stringify(pesquisar);
                 })
-
-                $("#search_btn1").click(function () {
-                    let pesquisar = $("#search1").val()
-                    if (pesquisar.length < 3 || pesquisar == "   ") {
-                        alert("Pesquisas só com 3 ou mais carateres")
-                    } else {
-                        let valoresfinais = searchItens(pesquisar, regulamentos)
-                        console.log(valoresfinais)
-                        if (valoresfinais.length != 0) {
-                            $('#root').empty();
-                            $("#root").append('<h6 id="search" class="p-2"></h6>')
-                            $("h6#search").text('Encontradas ' + valoresfinais.length + ' correspondências para "' + pesquisar + '"')
-
-                            $('#jstree').jstree().deselect_all(true)
-                            $('#jstree').jstree().select_node(valoresfinais, false);
-                            $('#jstree').jstree().select_node(valoresfinais[0], true);
-
-                        } else {
-                            $('#root').empty();
-                            $("#root").append('<h6 id="search" class="p-2"></h6>')
-                            $("h6#search").text('Não foram encontradas correspondências para "' + pesquisar + '"')
-                        }
-
-                    }
-                })
-
 
                 // hover
                 $('#jstree').bind("hover_node.jstree", function (e, data) {
@@ -130,26 +157,64 @@ $(document).ready(function () {
                 });
 
                 // selecionar nós por defeito
-                if (document.title != "Barragens - Pesquisa") {
+                $('#jstree').on('loaded.jstree', function () {
+                    if (document.title == "Barragens - Regulamentos") {
+                        $('#jstree').jstree("check_all").bind();
+                    } else if (document.title == "Barragens - RSB") {
+                        $('#jstree').jstree('select_node', 'rsb');
+                    } else if (document.title == "Barragens - RPB") {
+                        $('#jstree').jstree('select_node', 'rpb');
+                    } else if (document.title == "Barragens - DTA(PI)") {
+                        $('#jstree').jstree('select_node', 'dta1');
+                    } else if (document.title == "Barragens - DTA(PII)") {
+                        $('#jstree').jstree('select_node', 'dta2');
+                    } else if (document.title == "Barragens - DTA(PIII)") {
+                        $('#jstree').jstree('select_node', 'dta3');
+                    } else if (document.title == "Barragens - DTA(PIV)") {
+                        $('#jstree').jstree('select_node', 'dta4');
+                    } else if (document.title == "Barragens - Pesquisa") {
 
-                    $('#jstree').on('loaded.jstree', function () {
-                        if (document.title == "Barragens - Regulamentos") {
-                            $('#jstree').jstree("check_all").bind();
-                        } else if (document.title == "Barragens - RSB") {
-                            $('#jstree').jstree('select_node', 'rsb');
-                        } else if (document.title == "Barragens - RPB") {
-                            $('#jstree').jstree('select_node', 'rpb');
-                        } else if (document.title == "Barragens - DTA(PI)") {
-                            $('#jstree').jstree('select_node', 'dta1');
-                        } else if (document.title == "Barragens - DTA(PII)") {
-                            $('#jstree').jstree('select_node', 'dta2');
-                        } else if (document.title == "Barragens - DTA(PIII)") {
-                            $('#jstree').jstree('select_node', 'dta3');
-                        } else if (document.title == "Barragens - DTA(PIV)") {
-                            $('#jstree').jstree('select_node', 'dta4');
+                        var searchArray = sessionStorage.getItem('searchArray'); //obter variavel global que foi criada noutra pagina
+                        searchArray = searchArray.split(",");
+
+                        numberWordsSearch = searchArray.shift();  // search fica o 1ºelemento do array e searchArray fica sem esse elemento
+                        wordsSearch = searchArray.splice(0, numberWordsSearch)
+
+                        $("#search").val(wordsSearch)
+
+                        if (search.length < 3) {
+                            $("#alert_search").prepend("Atenção: Não são aceites pesquisas com menos de 3 caracteres")
+                        } else {
+                            if (searchArray.length == 1)
+                                $("#alert_search").prepend('Atenção: Não foram encontradas correspondências para <strong> ' + search + '"<\strong>')
+
+                            else if (searchArray.length > 100 && searchArray.length < 250) {
+                                $("#alert_search").prepend("Atenção: A sua pesquisa retornou muitas correspondências (" + searchArray.length + ").\n Recomenda-se que refine a sua procura!")
+                                searchArray_rsb_rpb = searchArray.filter((el) => {
+                                    if (el.split("-")[0] == "rsb" || el.split("-")[0] == "rpb") {
+                                        return true
+                                    }
+                                })
+                                searchArray_dtas = searchArray.filter((el) => {
+                                    if (el.split("-")[0].includes("dta1", "dta2", "dta3", "dta4")) {
+                                        return true
+                                    }
+                                })
+                                //tentativa para ser mais rápido (ou pelo menos não encravar a página
+                                $('#jstree').jstree('select_node', searchArray_rsb_rpb);
+                                $('#jstree').jstree('select_node', searchArray_dtas);
+                            } else if (searchArray.length > 250) {
+                                $("#alert_search").prepend("Atenção!<br> A sua pesquisa retornou demasiadas correspondências para ser útil (" + searchArray.length + ").<br>É recomendado que refina a sua procura!")
+
+
+                            } else { //entre 1 e 100
+                                $('#jstree').jstree('select_node', searchArray);
+                                $("#alert_search").prepend('Foram encontradas ' + searchArray.length + ' correspondências para: <strong> ' + wordsSearch.join() + '<\strong>.')
+
+                            }
                         }
-                    });
-                }
+                    }
+                });
 
                 // search in tree (left side search)
                 $(".search-input").keyup(function () {
@@ -247,8 +312,6 @@ $(document).ready(function () {
                     $('<div></div>').addClass("accordion-body pe-0 border-left").attr('id', 'acc-body_' + obj.id).appendTo($('div#acc-collapse_' + obj.id))
                     $('<div></div>').attr('id', obj.id).appendTo($('div#acc-body_' + obj.id)) // cria um div no fim para receber os children
                 }
-
-
                 // cria o html (list-group) para um dado obj (Artigo)
                 // recebe um objeto (1 children ou seja 1 artigo) do Json e cria o html
                 let artGroup_type = function (obj, index) {
@@ -278,8 +341,6 @@ $(document).ready(function () {
                     // document.getElementById('lstgr-item_' + obj.id).style.borderTop = "0rem";
                     // document.getElementById('lstgr-item_' + obj.id).style.borderbottom = "0rem";
                 }
-
-
                 // cria o html (list-group) para um dado obj (ponto)
                 // recebe um objeto (1 children ou seja 1 ponto) do Json e cria o html
                 let ponto_type = function (obj) {

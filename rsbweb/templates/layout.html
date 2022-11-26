@@ -154,16 +154,29 @@
                 <!-- Search form -->
 
 
-
-
-
                 <form class="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0">
-{#                    <input id='search' type="search" class="form-control" placeholder="Procurar item"#}
-{#                           aria-label="Search"/>#}
+                    <input id='search' type="search" class="form-control" placeholder="palavra 1, palavra 2, ..."
+                           aria-label="Search"/>
                     <button id='search_btn' class="btn btn-primary" type="button" data-mdb-ripple-color="dark">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
+
+                    <div class="form-check mx-3">
+                        <input id="rd_search_and" class="form-check-input" type="radio" name="exampleRadios" value="e"
+                               checked>
+                        <label class="form-check-label text-light" for="rd_search_and">
+                            e
+                        </label> <br>
+
+                        <input id="rd_search_or" class="form-check-input" type="radio" name="exampleRadios" value="ou">
+                        <label class="form-check-label text-light" for="rd_search_or">
+                            ou
+                        </label>
+                    </div>
+
+
                 </form>
+                <a href="javascript:void(0);" id="store"></a> {#//store array#}
 
             </div>
             <!-- Collapsible wrapper -->
@@ -182,7 +195,7 @@
         </div>
 
         {#centro#}
-        <div class="col-lg-9">
+        <div class="col-lg-8">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}
@@ -192,11 +205,13 @@
                     {% endfor %}
                 {% endif %}
             {% endwith %}
+
+
             {% block col_central %}{% endblock %}
 
         </div>
         {#    lado direito#}
-        <div class="col-lg-0">
+        <div class="col-lg-1">
             {% block col_drt %}{% endblock %}
 
         </div>
@@ -219,44 +234,7 @@
 
 <!-- Ricardos -->
 <script src="{{ url_for('static', filename='ricardo_jstree.js') }}"></script>
-<script>
-
-
-    const search = document.getElementById('search');
-    const search_btn = document.getElementById('search_btn')
-    const matchList = document.getElementById('match-list');
-
-
-    function iterate_json_search(obj, regex, matches) {
-        obj.children.forEach(item => {
-            if (item.children && item.children !== []) {
-                // procurar no nome
-                if (item.name) {
-                    if (item.name.match(regex)) {
-                        matches.push(item.id)
-                    }
-                }
-                // procurar no content
-                if (item.content) {
-                    if (item.content.match(regex)) {
-                        matches.push(item.id)
-                    }
-                }
-                //procurar no title
-                if (item.title) {
-                    if (item.title.match(regex)) {
-                        matches.push(item.id)
-                    }
-                }
-                iterate_json(item, regex, matches);
-            }
-
-        })
-        return matches
-    }
-
-
-</script>
+<script></script>
 
 
 </body>

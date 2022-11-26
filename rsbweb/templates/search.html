@@ -3,9 +3,15 @@
 {% set title="Pesquisa" %}
 
 {% block col_esq %}
-    <input id="search-input" class="search-input form-control mr-sm-2" type="search"
-           placeholder="Procura rápida" aria-label="Procurar"/>
-    <br/>
+    <input id="search-input" class="search-input form-control mr-sm-2 py-2" type="search"
+           placeholder="Procurar item" aria-label="Procurar"/>
+
+        <div>
+        <div class="btn-group py-2" role="group" aria-label="Basic outlined example">
+            <button id="selectAll" type="button" class="btn btn-sm btn-outline-primary">Tudo</button>
+            <button id="deselectAll" type="button" class="btn  btn-sm btn-outline-primary">Nada</button>
+        </div>
+    </div>
     <div id="jstree"></div>
 {% endblock %}
 
@@ -20,15 +26,7 @@
                 </div>
                 <div class="col-sm-8">
 
-                    <div class="input-group mb-3">
-                        <input id='search1' type="text" class="form-control" placeholder="Procurar"
-                               aria-label="" aria-describedby="basic-addon2">
-                        <div id='search_btn1' class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
-                    </div>
-
-
+                    <a href="javascript:void(0);" id="get"></a> {#//Get array#}
 
                 </div>
                 <div class="col-sm-2">
@@ -40,7 +38,16 @@
 
     </div>
 
-    <div id="root"></div>
+    <div id=alert_search class="alert alert-warning" role="alert">
+{#        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">#}
+{#            <span aria-hidden="true">&times</span>#}
+        </button>
+    </div>
+
+    <div id="root">
+
+
+    </div>
 {% endblock %}
 
 

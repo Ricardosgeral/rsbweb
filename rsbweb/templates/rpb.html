@@ -3,9 +3,15 @@
 {% set title="RPB" %}
 
 {% block col_esq %}
-    <input id="search-input" class="search-input form-control mr-sm-2" type="search"
-           placeholder="Procurar rápida" aria-label="Procurar"/>
-    <br/>
+    <input id="search-input" class="search-input form-control mr-sm-2 py-2" type="search"
+           placeholder="Procurar item" aria-label="Procurar"/>
+
+        <div>
+        <div class="btn-group py-2" role="group" aria-label="Basic outlined example">
+            <button id="selectAll" type="button" class="btn btn-sm btn-outline-primary">Tudo</button>
+            <button id="deselectAll" type="button" class="btn  btn-sm btn-outline-primary">Nada</button>
+        </div>
+    </div>
     <div id="jstree"></div>
 {% endblock %}
 
