@@ -51,7 +51,7 @@ $(document).ready(function () {
                                 // procurar no content
                                 if (item.content) {
                                     var isFound = searchText.every(function (word) {
-                                        return item.content.indexOf(word) !== -1;
+                                        return item.content.toLowerCase().indexOf(word.toLowerCase()) !== -1; // toLowercase transforma em case-insensitive
                                     });
                                     if (isFound) {
                                         matches.push(item.id)
@@ -60,7 +60,7 @@ $(document).ready(function () {
                                 //procurar no title
                                 if (item.title) {
                                     var isFound = searchText.every(function (word) {
-                                        return item.title.indexOf(word) !== -1;
+                                        return item.title.toLowerCase().indexOf(word.toLowerCase()) !== -1;  // toLowercase transforma em case-insensitive
                                     });
                                     if (isFound) {
                                         matches.push(item.id)
@@ -71,7 +71,7 @@ $(document).ready(function () {
                                 // procurar no content
                                 if (item.content) {
                                     var isFound = searchText.some(function (word) {
-                                        return item.content.indexOf(word) !== -1;
+                                        return item.content.toLowerCase().indexOf(word.toLowerCase()) !== -1;// toLowercase transforma em case-insensitive
                                     });
                                     if (isFound) {
                                         matches.push(item.id)
@@ -79,9 +79,8 @@ $(document).ready(function () {
                                 }
                                 //procurar no title
                                 if (item.title) {
-                                    console.log(isFound)
                                     var isFound = searchText.some(function (word) {
-                                        return item.title.indexOf(word) !== -1;
+                                        return item.title.toLowerCase().indexOf(word.toLowerCase()) !== -1;// toLowercase transforma em case-insensitive
                                     });
                                     if (isFound) {
                                         matches.push(item.id)
@@ -112,7 +111,6 @@ $(document).ready(function () {
                     }
                     res_array = array.filter(function (el) {
                         return !toRemove.includes(el)
-
                     })
                     return res_array
                 }
@@ -126,7 +124,6 @@ $(document).ready(function () {
                 $('#selectAll').click(function () {
                         $('#jstree').jstree("check_all").bind();
                         $("#alert_search").hide()
-
                     })
 
                 $('#deselectAll').click(function () {
@@ -183,13 +180,12 @@ $(document).ready(function () {
                         $("#search").val(wordsSearch)
 
                         if (search.length < 3) {
-                            $("#alert_search").prepend("Atenção: Não são aceites pesquisas com menos de 3 caracteres")
+                            $("#alert_search").prepend("Atenção!<br> Não são aceites pesquisas com menos de 3 caracteres.")
                         } else {
                             if (searchArray.length == 1)
-                                $("#alert_search").prepend('Atenção: Não foram encontradas correspondências para <strong> ' + search + '"<\strong>')
-
+                                $("#alert_search").prepend('Atenção!<br> Não foram encontradas correspondências para: <strong> ' + wordsSearch.join() + '<\strong>.')
                             else if (searchArray.length > 100 && searchArray.length < 250) {
-                                $("#alert_search").prepend("Atenção: A sua pesquisa retornou muitas correspondências (" + searchArray.length + ").\n Recomenda-se que refine a sua procura!")
+                                $("#alert_search").prepend("Atenção!<br>A sua pesquisa retornou muitas correspondências (" + searchArray.length + ").<br>Recomenda-se que refine a sua procura!")
                                 searchArray_rsb_rpb = searchArray.filter((el) => {
                                     if (el.split("-")[0] == "rsb" || el.split("-")[0] == "rpb") {
                                         return true
@@ -205,12 +201,9 @@ $(document).ready(function () {
                                 $('#jstree').jstree('select_node', searchArray_dtas);
                             } else if (searchArray.length > 250) {
                                 $("#alert_search").prepend("Atenção!<br> A sua pesquisa retornou demasiadas correspondências para ser útil (" + searchArray.length + ").<br>É recomendado que refina a sua procura!")
-
-
                             } else { //entre 1 e 100
                                 $('#jstree').jstree('select_node', searchArray);
                                 $("#alert_search").prepend('Foram encontradas ' + searchArray.length + ' correspondências para: <strong> ' + wordsSearch.join() + '<\strong>.')
-
                             }
                         }
                     }
