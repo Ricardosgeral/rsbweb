@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
         $.getJSON('./static/regulamentos.json', function (regulamentos) {
 
                 //criar a árvore
@@ -122,14 +123,27 @@ $(document).ready(function () {
                 });
 
                 $('#selectAll').click(function () {
+                    if ($("#selectAll").text() == "Selecionar tudo") {
                         $('#jstree').jstree("check_all").bind();
                         $("#alert_search").hide()
-                    })
 
-                $('#deselectAll').click(function () {
+                        $("#selectAll").text("Desselecionar tudo")
+                    } else {
                         $('#jstree').jstree("uncheck_all").bind();
                         $("#alert_search").hide()
-                    })
+                        $("#selectAll").text("Selecionar tudo")
+                    }
+                })
+
+                $('#colapseAll').click(function () {
+                    if ($("#colapseAll").text() == "Colapsar tudo") {
+                        $('#jstree').jstree("close_all").bind();
+                        $("#colapseAll").text("Expandir tudo")
+                    } else {
+                        $('#jstree').jstree("open_all").bind();
+                        $("#colapseAll").text("Colapsar tudo")
+                    }
+                })
 
                 // função de pesquisa
                 $("#search_btn").click(function () {
