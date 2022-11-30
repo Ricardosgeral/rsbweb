@@ -11,8 +11,13 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <script src="https://kit.fontawesome.com/efb8be0006.js" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
 
     {% if title %}
         <title>Barragens - {{ title }}</title>
@@ -94,7 +99,7 @@
                                     <a class="dropdown-item" href="{{ url_for('main.reg_dtaIII') }}">Parte 3
                                         (exploração)</a>
                                     <a class="dropdown-item" href="{{ url_for('main.reg_dtaIV') }}">Parte 4
-                                        (pbservação)</a>
+                                        (observação)</a>
 
                                 </li>
                             </ul>
@@ -186,7 +191,7 @@
 
 
 </header>
-<main role="main" class="container pt-4">
+<main role="main" class="container content pt-4">
     <div class="row">
 
         {#lado esquerdo#}
@@ -218,6 +223,23 @@
     </div>
 </main>
 
+<div class="footer footer-basic">
+
+    <footer class="footer mt-auto py-3">
+        <div class="social"><a href="https://github.com/Ricardosgeral"><i class="icon ion-social-github"></i></a>
+            <a href="https://twitter.com/GoldDetox"><i class="icon ion-social-twitter"></i></a><a
+                    href="https://www.instagram.com/rthinkspics/"><i
+                    class="icon ion-social-instagram"></i></a></div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="{{ url_for('main.home') }}">Início</a></li>
+            <li class="list-inline-item"><a href="{{ url_for('main.about') }}">Acerca</a></li>
+            <li class="list-inline-item"><a href="#">Termos de utilização</a></li>
+            <li class="list-inline-item"><a href="#">Politica de privacidade</a></li>
+        </ul>
+        <p class="copyright">Ricardos © 2022</p>
+    </footer>
+</div>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -238,4 +260,5 @@
 
 
 </body>
+
 </html>

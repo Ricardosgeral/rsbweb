@@ -45,6 +45,7 @@ $(document).ready(function () {
                     return filtered_results
                 }
 
+                // função para iterar o json para a funsão do Search
                 function iterate_json_search(obj, searchText, rd_search_and, matches) {
                     obj.children.forEach(item => {
                         if (item.children && item.children !== []) {
@@ -116,17 +117,17 @@ $(document).ready(function () {
                     return res_array
                 }
 
-                // sempre que mudar a tree
+                // mudar a tree sempre que haja alteração da tree
                 $('#jstree').on("changed.jstree", function (e, data) {
                     $('#root').empty();
                     iterate_json(regulamentos, data.selected)
                 });
 
+                // button de (des)selecionar tudo na tree
                 $('#selectAll').click(function () {
                     if ($("#selectAll").text() == "Selecionar tudo") {
                         $('#jstree').jstree("check_all").bind();
                         $("#alert_search").hide()
-
                         $("#selectAll").text("Desselecionar tudo")
                     } else {
                         $('#jstree').jstree("uncheck_all").bind();
@@ -134,7 +135,7 @@ $(document).ready(function () {
                         $("#selectAll").text("Selecionar tudo")
                     }
                 })
-
+                // button para expander colapsar a tree
                 $('#colapseAll').click(function () {
                     if ($("#colapseAll").text() == "Colapsar tudo") {
                         $('#jstree').jstree("close_all").bind();
@@ -162,12 +163,12 @@ $(document).ready(function () {
                     window.location = "search?" + rd_search_and + JSON.stringify(pesquisar);
                 })
 
-                // hover
+                // Mostrar título quando se faz hover sobre a tree
                 $('#jstree').bind("hover_node.jstree", function (e, data) {
                     $("#jstree").attr('title', data.node.original.title);
                 });
 
-                // selecionar nós por defeito
+                // selecionar nós por defeito dependendo da página
                 $('#jstree').on('loaded.jstree', function () {
                     if (document.title == "Barragens - Regulamentos") {
                         $('#jstree').jstree("check_all").bind();
@@ -264,10 +265,10 @@ $(document).ready(function () {
                 let content_type = function (obj, index, dataSelected) {
                     if (is_selected(obj.id, dataSelected)) {
                         if (["rsb", "rpb", "dta1", "dta2", "dta3", "dta4"].includes(obj.id)) {
-                            const cor_tab = "#0d6efd";
+                            const cor_tab = "#4396fd";
                             return accordion_type(obj, cor_tab)
                         } else if (obj.name.slice(0, 3) === 'Cap' || obj.name.slice(0, 5) === 'Anexo') {
-                            const cor_tab = "#00a5e0";
+                            const cor_tab = "#22b3e0";
                             return accordion_type(obj, cor_tab);
                         } else if (obj.text.slice(0, 3) === 'Sec') {
                             const cor_tab = "#7f99ef";
@@ -317,7 +318,23 @@ $(document).ready(function () {
                     //
                     $('<div></div>').addClass("accordion-collapse collapse show").attr('id', 'acc-collapse_' + obj.id).appendTo($('div#acc-item_' + obj.id))
                     $('<div></div>').addClass("accordion-body pe-0 border-left").attr('id', 'acc-body_' + obj.id).appendTo($('div#acc-collapse_' + obj.id))
+
+                    if (obj.id === "dta1-anx1") {
+                        $('<div id= "dta1-anx1-qd"><div>').appendTo($("#acc-body_" + obj.id))
+                        $("#dta1-anx1-qd").load("./static/tables/dta1-anxI-qd.html #dta1-anxI-qd");
+                    } else if (obj.id === "dta1-anx2") {
+                        $('<div id= "dta1-anx2-qd"><div>').appendTo($("#acc-body_" + obj.id))
+                        $("#dta1-anx2-qd").load("./static/tables/dta1-anxII-qd.html #dta1-anxII-qd");
+                    } else if (obj.id === "dta1-anx3") {
+                        $('<div id= "dta1-anx3-qd"><div>').appendTo($("#acc-body_" + obj.id))
+                        $("#dta1-anx3-qd").load("./static/tables/dta1-anxIII-qd.html #dta1-anxIII-qd");
+                    } else if (obj.id === "dta4-anx") {
+                        $('<div id= "dta4-anx-qd"><div>').appendTo($("#acc-body_" + obj.id))
+                        $("#dta4-anx-qd").load("./static/tables/dta4-anx-qdI.html");
+                    }
                     $('<div></div>').attr('id', obj.id).appendTo($('div#acc-body_' + obj.id)) // cria um div no fim para receber os children
+
+
                 }
                 // cria o html (list-group) para um dado obj (Artigo)
                 // recebe um objeto (1 children ou seja 1 artigo) do Json e cria o html
@@ -361,7 +378,17 @@ $(document).ready(function () {
                     $('a#lstgr-item_' + obj.id).addClass("list-group-item list-group-item-action border-0");
 
                     $("a#lstgr-item_" + obj.id).text(obj.text + " — " + obj.content)
+                    if (obj.id === "rsb-anx-p5") {
+                        $('<div id= "rsb-anx-p5-qd"><div>').appendTo($("#lstgr-item_" + obj.id))
+                        $("#rsb-anx-p5-qd").load("./static/tables/rsb-anx-p5-qd.html #rsb-anx-qd", function () {
+                            // console.log("Load was performed.");
+                        });
+                    }
+
+
                     $('<div></div>').attr('id', obj.id).appendTo($('a#lstgr-item_' + obj.id)) // cria um div no fim para receber os children
+
+
                     //formatação
                     document.getElementById('div-item_' + obj.id).style.borderLeft = "0.15rem solid #FF5733";
                     document.getElementById('div-item_' + obj.id).style.borderRight = "0rem";
