@@ -124,6 +124,7 @@ $(document).ready(function () {
                 });
 
                 // button de (des)selecionar tudo na tree
+            $('#selectAll')
                 $('#selectAll').click(function () {
                     if ($("#selectAll").text() == "Selecionar tudo") {
                         $('#jstree').jstree("check_all").bind();
@@ -330,10 +331,11 @@ $(document).ready(function () {
                         $("#dta1-anx3-qd").load("./static/tables/dta1-anxIII-qd.html #dta1-anxIII-qd");
                     } else if (obj.id === "dta4-anx") {
                         $('<div id= "dta4-anx-qd"><div>').appendTo($("#acc-body_" + obj.id))
-                        $("#dta4-anx-qd").load("./static/tables/dta4-anx-qdI.html");
+                        $("#dta4-anx-qd").load("./static/tables/dta4-anx-qdI.html", () => MathJax.typesetPromise().then(() => {
+  // the new content is has been typeset
+}));
                     }
                     $('<div></div>').attr('id', obj.id).appendTo($('div#acc-body_' + obj.id)) // cria um div no fim para receber os children
-
 
                 }
                 // cria o html (list-group) para um dado obj (Artigo)
