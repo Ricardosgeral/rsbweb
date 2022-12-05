@@ -124,7 +124,7 @@ $(document).ready(function () {
                 });
 
                 // button de (des)selecionar tudo na tree
-            $('#selectAll')
+                $('#selectAll')
                 $('#selectAll').click(function () {
                     if ($("#selectAll").text() == "Selecionar tudo") {
                         $('#jstree').jstree("check_all").bind();
@@ -192,15 +192,16 @@ $(document).ready(function () {
 
                         numberWordsSearch = searchArray.shift();  // search fica o 1ºelemento do array e searchArray fica sem esse elemento
                         wordsSearch = searchArray.splice(0, numberWordsSearch)
-
                         $("#search").val(wordsSearch)
+                        // console.log(searchArray)
 
                         if (search.length < 3) {
                             $("#alert_search").prepend("Atenção!<br> Não são aceites pesquisas com menos de 3 caracteres.")
                         } else {
-                            if (searchArray.length == 1)
+                            if (searchArray[0] == '')
+
                                 $("#alert_search").prepend('Atenção!<br> Não foram encontradas correspondências para: <strong> ' + wordsSearch.join() + '<\strong>.')
-                            else if (searchArray.length > 100 && searchArray.length < 250) {
+                            else if (searchArray.length > 100 && searchArray.length < 260) {
                                 $("#alert_search").prepend("Atenção!<br>A sua pesquisa retornou muitas correspondências (" + searchArray.length + ").<br>Recomenda-se que refine a sua procura!")
                                 searchArray_rsb_rpb = searchArray.filter((el) => {
                                     if (el.split("-")[0] == "rsb" || el.split("-")[0] == "rpb") {
@@ -212,14 +213,19 @@ $(document).ready(function () {
                                         return true
                                     }
                                 })
+
                                 //tentativa para ser mais rápido (ou pelo menos não encravar a página
                                 $('#jstree').jstree('select_node', searchArray_rsb_rpb);
                                 $('#jstree').jstree('select_node', searchArray_dtas);
-                            } else if (searchArray.length > 250) {
+                            } else if (searchArray.length > 300) {
                                 $("#alert_search").prepend("Atenção!<br> A sua pesquisa retornou demasiadas correspondências para ser útil (" + searchArray.length + ").<br>É recomendado que refina a sua procura!")
-                            } else { //entre 1 e 100
+                            } else { //entre 1 e 300
                                 $('#jstree').jstree('select_node', searchArray);
-                                $("#alert_search").prepend('Foram encontradas ' + searchArray.length + ' correspondências para: <strong> ' + wordsSearch.join() + '<\strong>.')
+                                if (searchArray.length > 1) {
+                                    $("#alert_search").prepend('Foram encontradas ' + searchArray.length + ' correspondências para: <strong> ' + wordsSearch.join() + '<\strong>.')
+                                } else { // apenas 1 resultado
+                                    $("#alert_search").prepend('Foi encontrada apenas ' + searchArray.length + ' correspondência para: <strong> ' + wordsSearch.join() + '<\strong>.')
+                                }
                             }
                         }
                     }
@@ -332,8 +338,8 @@ $(document).ready(function () {
                     } else if (obj.id === "dta4-anx") {
                         $('<div id= "dta4-anx-qd"><div>').appendTo($("#acc-body_" + obj.id))
                         $("#dta4-anx-qd").load("./static/tables/dta4-anx-qdI.html", () => MathJax.typesetPromise().then(() => {
-  // the new content is has been typeset
-}));
+                            // the new content is has been typeset
+                        }));
                     }
                     $('<div></div>').attr('id', obj.id).appendTo($('div#acc-body_' + obj.id)) // cria um div no fim para receber os children
 
