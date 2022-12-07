@@ -11178,7 +11178,7 @@
              "name": "alínea",
              "title": "",
              "text": "e",
-             "content": "Construção da barragem no local protegido pelas ensecadeiras de montante e de jusante. 4 – Nos casos em que a solução adotada para o desvio do rio implica a construção da barragem por partes, com a passagem da água no leito do rio, na ausência de programa de trabalhos específico devidamente justificado e aprovado, deve ser respeitada a seguinte sequência de operações:",
+             "content": "Construção da barragem no local protegido pelas ensecadeiras de montante e de jusante.",
              "children": []
             }
            ]
@@ -11188,7 +11188,7 @@
            "name": "ponto",
            "title": "",
            "text": "4",
-           "content": "",
+           "content": "Nos casos em que a solução adotada para o desvio do rio implica a construção da barragem\npor partes, com a passagem da água no leito do rio, na ausência de programa de trabalhos específico devidamente justificado e aprovado, deve ser respeitada a seguinte sequência de operações:",
            "children": [
             {
              "id": "dta2-c2-s2-a17-p4-a",

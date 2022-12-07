@@ -32,8 +32,8 @@
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="{{ url_for('main.home') }}"><img src="../static/images/logo_reg.png"
-            ></a>
+            <a class="navbar-brand" href="{{ url_for('main.home') }}"><img src="{{ url_for('static', filename='/images/logo_reg.png')}}"
+             alt="logo"></a>
 
             <!-- Toggle button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
