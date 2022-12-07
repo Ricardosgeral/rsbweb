@@ -2,54 +2,57 @@
 
 {% set title="Pesquisa" %}
 
+
 {% block col_esq %}
-    <input id="search-input" class="search-input form-control mr-sm-2 py-2" type="search"
-           placeholder="Procurar item" aria-label="Procurar"/>
+
+
+        <input id="search-input" class="search-input form-control mr-sm-2 py-2" type="search"
+               placeholder="Procurar item" aria-label="Procurar"/>
 
         <div>
-        <div class="btn-group py-2" role="group" aria-label="Basic outlined example">
-            <button id="selectAll" type="button" class="btn btn-sm btn-outline-primary">Selecionar tudo</button>
-            <button id="colapseAll" type="button" class="btn btn-sm btn-outline-primary">Colapsar tudo</button>
+            <div class="btn-group py-2" role="group" aria-label="Basic outlined example">
+                <button id="selectAll" type="button" class="btn btn-sm btn-outline-primary">Selecionar tudo</button>
+                <button id="colapseAll" type="button" class="btn btn-sm btn-outline-primary">Colapsar tudo</button>
+            </div>
         </div>
-    </div>
-    <div id="jstree"></div>
+        <div id="jstree"></div>
+
 {% endblock %}
 
 {% block col_central %}
     {#conteudo que vem dos #}
 
-    <div class="container">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
 
-                </div>
-                <div class="col-sm-8">
+                    </div>
+                    <div class="col-sm-8">
 
-                    <a href="javascript:void(0);" id="get"></a> {#//Get array#}
+                        <a href="javascript:void(0);" id="get"></a> {#//Get array#}
 
-                </div>
-                <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-2">
 
+                    </div>
                 </div>
             </div>
+            <!-- Search form -->
+
         </div>
-        <!-- Search form -->
 
-    </div>
+        <div id=alert_search class="alert alert-warning" role="alert">
+            {#        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">#}
+            {#            <span aria-hidden="true">&times</span>#}
+            </button>
+        </div>
 
-    <div id=alert_search class="alert alert-warning" role="alert">
-{#        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">#}
-{#            <span aria-hidden="true">&times</span>#}
-        </button>
-    </div>
-
-    <div id="root">
+        <div id="root">
 
 
-    </div>
+        </div>
+
 {% endblock %}
-
-
 {% block col_drt %}
 {% endblock %}

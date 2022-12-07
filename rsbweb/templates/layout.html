@@ -32,8 +32,9 @@
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="{{ url_for('main.home') }}"><img src="{{ url_for('static', filename='/images/logo_reg.png')}}"
-             alt="logo"></a>
+            <a class="navbar-brand" href="{{ url_for('main.home') }}"><img
+                    src="{{ url_for('static', filename='/images/logo_reg.png') }}"
+                    alt="logo"></a>
 
             <!-- Toggle button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -158,29 +159,33 @@
                 </ul>
                 <!-- Search form -->
 
+                {% if current_user.is_authenticated %}
+                    <form class="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0">
+                        <input id='search' type="search" class="form-control" placeholder="procura 1, procura 2, ..."
+                               aria-label="Search"/>
+                        <button id='search_btn' class="btn btn-primary" type="button" data-mdb-ripple-color="dark">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
 
-                <form class="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0">
-                    <input id='search' type="search" class="form-control" placeholder="procura 1, procura 2, ..."
-                           aria-label="Search"/>
-                    <button id='search_btn' class="btn btn-primary" type="button" data-mdb-ripple-color="dark">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
+                        <div class="form-check mx-3">
+                            <input id="rd_search_and" class="form-check-input" type="radio" name="exampleRadios"
+                                   value="e"
+                                   checked>
+                            <label class="form-check-label text-light" for="rd_search_and">
+                                e
+                            </label> <br>
 
-                    <div class="form-check mx-3">
-                        <input id="rd_search_and" class="form-check-input" type="radio" name="exampleRadios" value="e"
-                               checked>
-                        <label class="form-check-label text-light" for="rd_search_and">
-                            e
-                        </label> <br>
-
-                        <input id="rd_search_or" class="form-check-input" type="radio" name="exampleRadios" value="ou">
-                        <label class="form-check-label text-light" for="rd_search_or">
-                            ou
-                        </label>
-                    </div>
+                            <input id="rd_search_or" class="form-check-input" type="radio" name="exampleRadios"
+                                   value="ou">
+                            <label class="form-check-label text-light" for="rd_search_or">
+                                ou
+                            </label>
+                        </div>
 
 
-                </form>
+                    </form>
+                {% endif %}
+
                 <a href="javascript:void(0);" id="store"></a> {#//store array#}
 
             </div>
@@ -196,7 +201,9 @@
 
         {#lado esquerdo#}
         <div class="col-lg-3">
-            {% block col_esq %}{% endblock %}
+            {% if current_user.is_authenticated %}
+                {% block col_esq %}{% endblock %}
+            {% endif %}
         </div>
 
         {#centro#}
@@ -211,8 +218,12 @@
                 {% endif %}
             {% endwith %}
 
+            {% if current_user.is_authenticated or request.path not in ["/rsb","/rpb", "/dtaI","/dtaII","/dtaIII","/dtaIV","/search"]%}
+                {% block col_central %}{% endblock %}
+            {% else %}
+                <div><h4 class="pt-2">Tem de se registar primeiro</h4></div>
 
-            {% block col_central %}{% endblock %}
+            {% endif %}
 
         </div>
         {#    lado direito#}
